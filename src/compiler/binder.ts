@@ -44,7 +44,7 @@ import {
     declarationNameToString,
     DeleteExpression,
     DestructuringAssignment,
-    DiagnosticArguments,
+    DiagnosticArgument,
     DiagnosticCategory,
     DiagnosticMessage,
     DiagnosticRelatedInformation,
@@ -568,7 +568,7 @@ function createBinder(): (file: SourceFile, options: CompilerOptions) => void {
      * If so, the node _must_ be in the current file (as that's the only way anything could have traversed to it to yield it as the error node)
      * This version of `createDiagnosticForNode` uses the binder's context to account for this, and always yields correct diagnostics even in these situations.
      */
-    function createDiagnosticForNode(node: Node, message: DiagnosticMessage, ...args: DiagnosticArguments): DiagnosticWithLocation {
+    function createDiagnosticForNode(node: Node, message: DiagnosticMessage, ...args: DiagnosticArgument[]): DiagnosticWithLocation {
         return createDiagnosticForNodeInSourceFile(getSourceFileOfNode(node) || file, node, message, ...args);
     }
 
@@ -2635,7 +2635,7 @@ function createBinder(): (file: SourceFile, options: CompilerOptions) => void {
         }
     }
 
-    function errorOnFirstToken(node: Node, message: DiagnosticMessage, ...args: DiagnosticArguments) {
+    function errorOnFirstToken(node: Node, message: DiagnosticMessage, ...args: DiagnosticArgument[]) {
         const span = getSpanOfTokenAtPosition(file, node.pos);
         file.bindDiagnostics.push(createFileDiagnostic(file, span.start, span.length, message, ...args));
     }

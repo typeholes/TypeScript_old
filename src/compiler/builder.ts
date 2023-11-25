@@ -560,6 +560,7 @@ function convertToDiagnosticRelatedInformation(diagnostic: ReusableDiagnosticRel
         messageText: isString(diagnostic.messageText) ?
             diagnostic.messageText :
             convertOrRepopulateDiagnosticMessageChain(diagnostic.messageText, sourceFile, newProgram, chain => (chain as ReusableRepopulateModuleNotFoundChain).info),
+            args: [],
     };
 }
 

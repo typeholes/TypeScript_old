@@ -540,6 +540,7 @@ class SessionServerHost implements ts.server.ServerHost {
                                     length: 3,
                                     messageText: `Plugin diagnostic`,
                                     start: 0,
+                                    args: [],
                                 });
                                 return prev;
                             };
@@ -567,6 +568,7 @@ class SessionServerHost implements ts.server.ServerHost {
                                     length: 3,
                                     messageText: customMessage,
                                     start: 0,
+                                    args: [],
                                 });
                                 return prev;
                             };
