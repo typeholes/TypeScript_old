@@ -792,7 +792,6 @@ export function unescapeLeadingUnderscores(identifier: __String): string {
     return id.length >= 3 && id.charCodeAt(0) === CharacterCodes._ && id.charCodeAt(1) === CharacterCodes._ && id.charCodeAt(2) === CharacterCodes._ ? id.substr(1) : id;
 }
 
-
 /**
  * Remove extra underscore from escaped identifier text content.
  *

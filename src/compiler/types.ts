@@ -6977,9 +6977,13 @@ export interface Diagnostic extends DiagnosticRelatedInformation {
 }
 
 /** @internal */
-export interface StructuredDiagnosticArgument { cacheId: number| undefined, type: 'Type'|'Symbol'|'Node'|'Signature'|'TypePredicate'|'string', text: string }
+export interface StructuredDiagnosticArgument {
+    cacheId: number | undefined;
+    type: "Type" | "Symbol" | "Node" | "Signature" | "TypePredicate" | "string";
+    text: string;
+}
 /** @internal */
-export type DiagnosticArgument = StructuredDiagnosticArgument | string | number // comment out | string | number to enforce structured arguments
+export type DiagnosticArgument = StructuredDiagnosticArgument | string | number; // comment out | string | number to enforce structured arguments
 
 /** @internal */
 export type DiagnosticAndArguments = [message: DiagnosticMessage, ...args: DiagnosticArgument[]];

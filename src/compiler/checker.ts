@@ -4304,8 +4304,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
                     else if (location.kind === SyntaxKind.ConditionalType) {
                         // A type parameter declared using 'infer T' in a conditional type is visible only in
                         // the true branch of the conditional type.
-                        useResult = lastLocation ===
-                            (location as ConditionalTypeNode).trueType;
+                        useResult = lastLocation === location.trueType;
                     }
 
                     if (useResult) {
@@ -9777,13 +9776,8 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
         }
     }
 
-    function signatureToDiagnosticArgument(signature: Signature,
-         enclosingDeclaration?: Node,
-        flags = TypeFormatFlags.None,
-        kind?: SignatureKind,
-        writer?: EmitTextWriter,
-        ) {
-        return createDiagnosticArgument(signature, (signature) => signatureToString(signature, enclosingDeclaration, flags, kind, writer), 'Signature')
+    function signatureToDiagnosticArgument(signature: Signature, enclosingDeclaration?: Node, flags = TypeFormatFlags.None, kind?: SignatureKind, writer?: EmitTextWriter) {
+        return createDiagnosticArgument(signature, signature => signatureToString(signature, enclosingDeclaration, flags, kind, writer), "Signature");
     }
 
     function signatureToString(
@@ -9829,12 +9823,14 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
         }
     }
 
-    function typeToDiagnosticArgument(type: Type,
+    function typeToDiagnosticArgument(
+        type: Type,
         enclosingDeclaration?: Node,
         flags: TypeFormatFlags = TypeFormatFlags.AllowUniqueESSymbolType |
             TypeFormatFlags.UseAliasDefinedOutsideCurrentScope,
-        writer: EmitTextWriter = createTextWriter(""),        ) {
-        return createDiagnosticArgument(type, (type) => typeToString(type,enclosingDeclaration,flags,writer), "Type");
+        writer: EmitTextWriter = createTextWriter(""),
+    ) {
+        return createDiagnosticArgument(type, type => typeToString(type, enclosingDeclaration, flags, writer), "Type");
     }
 
     function typeToString(
@@ -35287,7 +35283,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
                         if (path.indexOf("new ") === 0) {
                             path = `(${path})`;
                         }
-                        const str = typeof args[0] === 'object' ? args[0].text : "" + args[0];
+                        const str = typeof args[0] === "object" ? args[0].text : "" + args[0];
                         // If leading, just print back the arg (irrespective of if it's a valid identifier)
                         if (path.length === 0) {
                             path = `${str}`;
@@ -41567,7 +41563,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
             noImplicitAny,
             declaration,
             diagnostic,
-        declarationNameToDiagnosticArgument(getNameOfDeclaration(declaration)),
+            declarationNameToDiagnosticArgument(getNameOfDeclaration(declaration)),
             typeAsString,
         );
     }
@@ -75774,7 +75770,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
                             node.isExportEquals
                                 ? Diagnostics.An_export_declaration_must_reference_a_real_value_when_verbatimModuleSyntax_is_enabled_but_0_resolves_to_a_type_only_declaration
                                 : Diagnostics.An_export_default_must_reference_a_real_value_when_verbatimModuleSyntax_is_enabled_but_0_resolves_to_a_type_only_declaration,
-                            createDiagnosticArgument(id, idText, 'Node'),
+                            createDiagnosticArgument(id, idText, "Node"),
                         );
                     }
                 }
@@ -75788,7 +75784,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
                         node.isExportEquals
                             ? Diagnostics.An_export_declaration_must_reference_a_value_when_verbatimModuleSyntax_is_enabled_but_0_only_refers_to_a_type
                             : Diagnostics.An_export_default_must_reference_a_value_when_verbatimModuleSyntax_is_enabled_but_0_only_refers_to_a_type,
-                        createDiagnosticArgument(id, idText, 'Node'),
+                        createDiagnosticArgument(id, idText, "Node"),
                     );
                 }
 
@@ -75817,7 +75813,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
                             node.isExportEquals
                                 ? Diagnostics._0_resolves_to_a_type_and_must_be_marked_type_only_in_this_file_before_re_exporting_when_1_is_enabled_Consider_using_import_type_where_0_is_imported
                                 : Diagnostics._0_resolves_to_a_type_and_must_be_marked_type_only_in_this_file_before_re_exporting_when_1_is_enabled_Consider_using_export_type_0_as_default,
-                            createDiagnosticArgument(id, idText, 'Node'),
+                            createDiagnosticArgument(id, idText, "Node"),
                             isolatedModulesLikeFlagName,
                         );
                     }
@@ -75835,11 +75831,11 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
                                 node.isExportEquals
                                     ? Diagnostics._0_resolves_to_a_type_only_declaration_and_must_be_marked_type_only_in_this_file_before_re_exporting_when_1_is_enabled_Consider_using_import_type_where_0_is_imported
                                     : Diagnostics._0_resolves_to_a_type_only_declaration_and_must_be_marked_type_only_in_this_file_before_re_exporting_when_1_is_enabled_Consider_using_export_type_0_as_default,
-                                createDiagnosticArgument(id, idText, 'Node'),
+                                createDiagnosticArgument(id, idText, "Node"),
                                 isolatedModulesLikeFlagName,
                             ),
                             typeOnlyDeclaration,
-                            createDiagnosticArgument(id, idText, 'Node'),
+                            createDiagnosticArgument(id, idText, "Node"),
                         );
                     }
                 }
