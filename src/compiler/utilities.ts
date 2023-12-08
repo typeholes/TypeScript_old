@@ -158,6 +158,7 @@ import {
     FunctionExpression,
     FunctionLikeDeclaration,
     GetAccessorDeclaration,
+    getAllJSDocTags,
     getBaseFileName,
     GetCanonicalFileName,
     getCombinedModifierFlags,
@@ -350,9 +351,11 @@ import {
     isWhiteSpaceLike,
     isWhiteSpaceSingleLine,
     JSDoc,
+    JSDocArray,
     JSDocCallbackTag,
     JSDocEnumTag,
     JSDocMemberName,
+    JSDocOverloadTag,
     JSDocParameterTag,
     JSDocPropertyLikeTag,
     JSDocSatisfiesExpression,
@@ -5603,27 +5606,14 @@ export function getJSDocCommentsAndTags(
 ): readonly (JSDoc | JSDocTag)[] {
     let result: (JSDoc | JSDocTag)[] | undefined;
     // Pull parameter comments from declaring function as well
-    if (
-        isVariableLike(hostNode) &&
-        hasInitializer(hostNode) &&
-        hasJSDocNodes(hostNode.initializer!)
-    ) {
-        result = addRange(
-            result,
-            filterOwnedJSDocTags(
-                hostNode,
-                last((hostNode.initializer as HasJSDoc).jsDoc!),
-            ),
-        );
+    if (isVariableLike(hostNode) && hasInitializer(hostNode) && hasJSDocNodes(hostNode.initializer!)) {
+        result = addRange(result, filterOwnedJSDocTags(hostNode, hostNode.initializer.jsDoc!));
     }
 
     let node: Node | undefined = hostNode;
     while (node && node.parent) {
         if (hasJSDocNodes(node)) {
-            result = addRange(
-                result,
-                filterOwnedJSDocTags(hostNode, last(node.jsDoc!)),
-            );
+            result = addRange(result, filterOwnedJSDocTags(hostNode, node.jsDoc!));
         }
 
         if (node.kind === SyntaxKind.Parameter) {
@@ -5649,12 +5639,17 @@ export function getJSDocCommentsAndTags(
     return result || emptyArray;
 }
 
-function filterOwnedJSDocTags(hostNode: Node, jsDoc: JSDoc | JSDocTag) {
-    if (isJSDoc(jsDoc)) {
-        const ownedTags = filter(jsDoc.tags, tag => ownsJSDocTag(hostNode, tag));
-        return jsDoc.tags === ownedTags ? [jsDoc] : ownedTags;
-    }
-    return ownsJSDocTag(hostNode, jsDoc) ? [jsDoc] : undefined;
+function filterOwnedJSDocTags(hostNode: Node, comments: JSDocArray) {
+    const lastJsDoc = last(comments);
+    return flatMap<JSDoc, JSDoc | JSDocTag>(comments, jsDoc => {
+        if (jsDoc === lastJsDoc) {
+            const ownedTags = filter(jsDoc.tags, tag => ownsJSDocTag(hostNode, tag));
+            return jsDoc.tags === ownedTags ? [jsDoc] : ownedTags;
+        }
+        else {
+            return filter(jsDoc.tags, isJSDocOverloadTag);
+        }
+    });
 }
 
 /**
@@ -5754,9 +5749,12 @@ export function getEffectiveContainerForJSDocTemplateTag(
 }
 
 /** @internal */
-export function getHostSignatureFromJSDoc(
-    node: Node,
-): SignatureDeclaration | undefined {
+export function getJSDocOverloadTags(node: Node): readonly JSDocOverloadTag[] {
+    return getAllJSDocTags(node, isJSDocOverloadTag);
+}
+
+/** @internal */
+export function getHostSignatureFromJSDoc(node: Node): SignatureDeclaration | undefined {
     const host = getEffectiveJSDocHost(node);
     if (host) {
         return isPropertySignature(host) && host.type && isFunctionLike(host.type)
