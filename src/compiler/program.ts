@@ -770,6 +770,83 @@ export function formatLocation(file: SourceFile, start: number, host: FormatDiag
     return output;
 }
 
+type Sarif = any; // TODO: make an actual Sarif type
+export function createSarifDiagnosticsReporter(sys: System): DiagnosticReporter { // TODO: where should this live?
+    const idMap = new Map<number, number>();
+    const rules: any[] = []; // TODO real type
+
+    const sarif: Sarif = {
+        version: "2.1.0",
+        $schema: "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.4.json",
+        runs: [
+            {
+                tool: {
+                    driver: {
+                        name: "TypeScript",
+                        rules: [],
+                    },
+                },
+                results: [],
+            },
+        ],
+    };
+    const reporter: DiagnosticReporter = diagnostic => {
+        const rule = mkRule(diagnostic);
+        sarif.runs[0].results.push(rule);
+    };
+
+    reporter.finalize = () => {
+        sarif.runs[0].tool.driver.rules = rules;
+        sys.write(JSON.stringify(sarif, undefined, 2).replace(/\n/g, sys.newLine) + sys.newLine);
+    };
+
+    return reporter;
+
+    function mkRule(diagnostic: Diagnostic) {
+        const code = diagnostic.code.toString();
+        let id = idMap.get(diagnostic.code);
+        if (id === undefined) {
+            const text = Object.values(Diagnostics).find(diag => diag.code === diagnostic.code)?.message ?? `diagnostic not found for ${code}`;
+
+            id = rules.push({
+                id: code,
+                messageStrings: {
+                    default: { text },
+                },
+            }) - 1;
+            idMap.set(diagnostic.code, id);
+        }
+
+        const args = diagnostic.args?.map(diagnosticArgText) ?? [];
+        return { ruleId: `${diagnostic.code}`, ruleIndex: id, message: { id: "default", arguments: args }, locations: [mkLocation(diagnostic)] };
+    }
+
+    function mkLocation(diagnostic: Diagnostic) {
+        return {
+            physicalLocation: {
+                artifactLocation: {
+                    uri: diagnostic.file?.fileName,
+                },
+                region: {
+                    charOffset: diagnostic.start ?? 0,
+                    charLength: diagnostic.length ?? 0,
+                },
+            },
+        };
+    }
+
+    function diagnosticArgText(arg: DiagnosticArgument) { // TODO: move to utilities
+        switch (typeof arg) {
+            case "string":
+                return arg;
+            case "number":
+                return `${arg}`;
+            case "object":
+                return arg.text;
+        }
+    }
+}
+
 export function formatDiagnosticsWithColorAndContext(diagnostics: readonly Diagnostic[], host: FormatDiagnosticsHost): string {
     let output = "";
     for (const diagnostic of diagnostics) {

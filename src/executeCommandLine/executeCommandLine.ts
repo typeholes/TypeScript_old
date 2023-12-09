@@ -22,6 +22,7 @@ import {
     CreateProgram,
     createProgram,
     CreateProgramOptions,
+    createSarifDiagnosticsReporter,
     createSolutionBuilder,
     createSolutionBuilderHost,
     createSolutionBuilderWithWatch,
@@ -148,10 +149,22 @@ function updateReportDiagnostic(
     sys: System,
     existing: DiagnosticReporter,
     options: CompilerOptions | BuildOptions,
-): DiagnosticReporter {
-    return shouldBePretty(sys, options) ?
-        createDiagnosticReporter(sys, /*pretty*/ true) :
-        existing;
+    cb: ExecuteCommandLineCallbacks,
+): [DiagnosticReporter, ExecuteCommandLineCallbacks] {
+    if (shouldBeSarif(options)) {
+        const reporter = createSarifDiagnosticsReporter(sys);
+        return [reporter, (...args: any) => {
+            if (reporter.finalize) reporter.finalize();
+            cb(args);
+        }];
+    }
+
+    return [
+        shouldBePretty(sys, options) ?
+            createDiagnosticReporter(sys, /*pretty*/ true) :
+            existing,
+        cb,
+    ];
 }
 
 function defaultIsPretty(sys: System) {
@@ -163,6 +176,13 @@ function shouldBePretty(sys: System, options: CompilerOptions | BuildOptions) {
         return defaultIsPretty(sys);
     }
     return options.pretty;
+}
+
+function shouldBeSarif(options: CompilerOptions | BuildOptions) {
+    if (!options || typeof options.sarif === "undefined") {
+        return false;
+    }
+    return options.sarif;
 }
 
 function getOptionsForHelp(commandLine: ParsedCommandLine) {
@@ -643,10 +663,11 @@ function executeCommandLineWorker(
         const configParseResult = parseConfigFileWithSystem(configFileName, commandLineOptions, extendedConfigCache, commandLine.watchOptions, sys, reportDiagnostic)!; // TODO: GH#18217
         if (commandLineOptions.showConfig) {
             if (configParseResult.errors.length !== 0) {
-                reportDiagnostic = updateReportDiagnostic(
+                [reportDiagnostic, cb] = updateReportDiagnostic(
                     sys,
                     reportDiagnostic,
                     configParseResult.options,
+                    cb,
                 );
                 configParseResult.errors.forEach(reportDiagnostic);
                 return sys.exit(ExitStatus.DiagnosticsPresent_OutputsSkipped);
@@ -655,10 +676,11 @@ function executeCommandLineWorker(
             sys.write(JSON.stringify(convertToTSConfig(configParseResult, configFileName, sys), null, 4) + sys.newLine);
             return sys.exit(ExitStatus.Success);
         }
-        reportDiagnostic = updateReportDiagnostic(
+        [reportDiagnostic, cb] = updateReportDiagnostic(
             sys,
             reportDiagnostic,
             configParseResult.options,
+            cb,
         );
         if (isWatchSet(configParseResult.options)) {
             if (reportWatchModeWithoutSysSupport(sys, reportDiagnostic)) return;
@@ -695,10 +717,11 @@ function executeCommandLineWorker(
             sys.write(JSON.stringify(convertToTSConfig(commandLine, combinePaths(currentDirectory, "tsconfig.json"), sys), null, 4) + sys.newLine);
             return sys.exit(ExitStatus.Success);
         }
-        reportDiagnostic = updateReportDiagnostic(
+        [reportDiagnostic, cb] = updateReportDiagnostic(
             sys,
             reportDiagnostic,
             commandLineOptions,
+            cb,
         );
         if (isWatchSet(commandLineOptions)) {
             if (reportWatchModeWithoutSysSupport(sys, reportDiagnostic)) return;
@@ -804,11 +827,13 @@ function performBuild(
     errors: Diagnostic[],
 ) {
     // Update to pretty if host supports it
-    const reportDiagnostic = updateReportDiagnostic(
+    const [reportDiagnostic, newCb] = updateReportDiagnostic(
         sys,
         createDiagnosticReporter(sys),
         buildOptions,
+        cb,
     );
+    cb = newCb;
 
     if (buildOptions.locale) {
         validateLocaleAndSetLanguage(buildOptions.locale, sys, errors);

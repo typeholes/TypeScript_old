@@ -119,7 +119,7 @@ const sysFormatDiagnosticsHost: FormatDiagnosticsHost | undefined = sys ? {
  *
  * @internal
  */
-export function createDiagnosticReporter(system: System, pretty?: boolean): DiagnosticReporter {
+export function createDiagnosticReporter(system: System, pretty?: boolean ): DiagnosticReporter {
     const host: FormatDiagnosticsHost = system === sys && sysFormatDiagnosticsHost ? sysFormatDiagnosticsHost : {
         getCurrentDirectory: () => system.getCurrentDirectory(),
         getNewLine: () => system.newLine,

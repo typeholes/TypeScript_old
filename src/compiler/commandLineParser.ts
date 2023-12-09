@@ -386,6 +386,7 @@ export const commonOptionsWithBuild: CommandLineOption[] = [
         description: Diagnostics.Enable_color_and_formatting_in_TypeScript_s_output_to_make_compiler_errors_easier_to_read,
         defaultValueDescription: true,
     },
+    { name: "sarif", type: "boolean", category: Diagnostics.Output_Formatting, defaultValueDescription: false },
     {
         name: "traceResolution",
         type: "boolean",
@@ -2026,7 +2027,8 @@ export function getDiagnosticText(message: DiagnosticMessage, ...args: any[]): s
     return cast(createCompilerDiagnostic(message, ...args).messageText, isString);
 }
 
-export type DiagnosticReporter = (diagnostic: Diagnostic) => void;
+// eslint-disable-next-line @typescript-eslint/consistent-type-definitions
+export type DiagnosticReporter = { (diagnostic: Diagnostic): void; finalize?(): void; };
 /**
  * Reports config file diagnostics
  */
