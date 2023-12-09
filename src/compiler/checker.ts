@@ -35534,10 +35534,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
                 else if (sourceType === targetType) {
                     message = Diagnostics.Type_0_is_not_assignable_to_type_1_Two_different_types_with_this_name_exist_but_they_are_unrelated;
                 }
-                else if (
-                    exactOptionalPropertyTypes &&
-                    getExactOptionalUnassignableProperties(source, target).length
-                ) {
+                else if (exactOptionalPropertyTypes && reportExactOptionalUnassignableProperties(source, target)) {
                     message = Diagnostics.Type_0_is_not_assignable_to_type_1_with_exactOptionalPropertyTypes_Colon_true_Consider_adding_undefined_to_the_types_of_the_target_s_properties;
                 }
                 else {
@@ -35563,15 +35560,18 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
                 }
             }
             else if (
-                message ===
-                    Diagnostics.Argument_of_type_0_is_not_assignable_to_parameter_of_type_1 &&
-                exactOptionalPropertyTypes &&
-                getExactOptionalUnassignableProperties(source, target).length
+                message === Diagnostics.Argument_of_type_0_is_not_assignable_to_parameter_of_type_1
+                && exactOptionalPropertyTypes
+                && reportExactOptionalUnassignableProperties(source, target)
             ) {
                 message = Diagnostics.Argument_of_type_0_is_not_assignable_to_parameter_of_type_1_with_exactOptionalPropertyTypes_Colon_true_Consider_adding_undefined_to_the_types_of_the_target_s_properties;
             }
 
             reportError(message, generalizedSourceType, targetType);
+            if (errorInfo?.next && errorInfo.next[0].code === Diagnostics.Properties_not_assignable_with_exactOptionalPropertyTypes_Colon_0.code && errorInfo.next[0].next) {
+                errorInfo.next.push(...errorInfo.next[0].next);
+                errorInfo.next[0].next = undefined;
+            }
         }
 
         function tryElaborateErrorsForPrimitivesAndObjects(
@@ -39684,6 +39684,16 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
                 );
             }
 
+            return false;
+        }
+
+        function reportExactOptionalUnassignableProperties(source: Type, target: Type) {
+            const unassignable = getExactOptionalUnassignableProperties(source, target);
+            if (unassignable.length > 0) {
+                const list = unassignable.map(s => symbolToString(s)).join(", ");
+                (incompatibleStack ||= []).push([Diagnostics.Properties_not_assignable_with_exactOptionalPropertyTypes_Colon_0, list]);
+                return true; // TODO: should we remove the EOPT flavors of the head messages?
+            }
             return false;
         }
     }

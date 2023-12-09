@@ -3731,6 +3731,10 @@
         "category": "Error",
         "code": 2865
     },
+    "Properties not assignable with exactOptionalPropertyTypes: {0}": {
+        "category": "Error",
+        "code": 2866
+    },
 
     "Import declaration '{0}' is using private name '{1}'.": {
         "category": "Error",
