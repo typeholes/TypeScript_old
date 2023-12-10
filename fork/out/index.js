@@ -18,7 +18,7 @@ function branchMarkdown(name, branch) {
     return `
 ### ${name}: ${branch.title}
 
->    ${branch.description.replace(/\n/g, "    \n")}
+- ${branch.description.trim().replace(/(\n *)/g, "$1- ")}
 
 `;
 }

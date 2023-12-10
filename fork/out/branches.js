@@ -7,7 +7,7 @@ exports.branches = {
         title: "Diagnostics shouldn't be just strings",
         description: `
 Adds an \`args\` property containing an array of the diagnostic arguments
-Arguments can be strings, number, or StructuredDiagnosticArguments
+  Arguments can be strings, number, or StructuredDiagnosticArguments
         `,
     },
     "eopt-list": {

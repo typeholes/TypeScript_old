@@ -9,22 +9,20 @@ A fork of TypeScript with experimental features. All feartures should be conside
 
 ### diagnostic-args: Diagnostics shouldn't be just strings
 
->        
-Adds an `args` property containing an array of the diagnostic arguments    
-Arguments can be strings, number, or StructuredDiagnosticArguments    
-        
+- Adds an `args` property containing an array of the diagnostic arguments
+  - Arguments can be strings, number, or StructuredDiagnosticArguments
 
 
 
 ### eopt-list: Adds a list of EOPT mismatches to the EOPT diagnostics
 
->    
+- 
 
 
 
 ### sarif: Adds a command line options to output diagnositcs in SARIF format
 
->    
+- 
 
 
 
