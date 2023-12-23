@@ -9735,6 +9735,31 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
         return createDiagnosticArgument(symbol, symbolToString, "Symbol");
     }
 
+    function resolutionTargetToDiagnosticArg(target: TypeSystemEntity) {
+
+        try {
+            // eslint-disable-next-line local/no-in-operator
+            if ("kind" in target) {
+                return createDiagnosticArgument(target, () => "todo: node text", "Node");
+            }
+
+            // eslint-disable-next-line local/no-in-operator
+            if ("escapedName" in target) {
+                return symbolToDiagnosticArg(target);
+            }
+
+            // eslint-disable-next-line local/no-in-operator
+            if ("symbol" in target) {
+                return typeToDiagnosticArgument(target);
+            }
+
+            return signatureToDiagnosticArgument(target);
+        }
+        catch (e) {
+            return createDiagnosticArgument(target as any, () => `${e}`, "string" as any);
+        }
+    }
+
     function symbolToString(
         symbol: Symbol,
         enclosingDeclaration?: Node,
@@ -20668,6 +20693,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
                         declaration.typeExpression.type,
                         Diagnostics.Type_alias_0_circularly_references_itself,
                         symbolToDiagnosticArg(symbol),
+                        ...((resolutionTargets ?? []).map(resolutionTargetToDiagnosticArg)),
                     );
                 }
                 else {
@@ -20677,6 +20703,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
                             : declaration,
                         Diagnostics.Type_alias_0_circularly_references_itself,
                         symbolToDiagnosticArg(symbol),
+                        ...((resolutionTargets ?? []).map(resolutionTargetToDiagnosticArg)),
                     );
                 }
             }
@@ -22832,6 +22859,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
                     Diagnostics.Type_of_property_0_circularly_references_itself_in_mapped_type_1,
                     symbolToDiagnosticArg(symbol),
                     typeToDiagnosticArgument(mappedType),
+                    ...((resolutionTargets ?? []).map(resolutionTargetToDiagnosticArg)),
                 );
                 type = errorType;
             }
@@ -25177,6 +25205,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
                         error(
                             typeNode,
                             Diagnostics.Return_type_annotation_circularly_references_itself,
+                            ...((resolutionTargets ?? []).map(resolutionTargetToDiagnosticArg)),
                         );
                     }
                     else if (noImplicitAny) {
@@ -25892,6 +25921,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
                         ? Diagnostics.Type_arguments_for_0_circularly_reference_themselves
                         : Diagnostics.Tuple_type_arguments_circularly_reference_themselves,
                     type.target.symbol && symbolToString(type.target.symbol),
+                    ...((resolutionTargets ?? []).map(resolutionTargetToDiagnosticArg)),
                 );
             }
         }
