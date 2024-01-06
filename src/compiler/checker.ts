@@ -1437,6 +1437,8 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
     var Type = objectAllocator.getTypeConstructor();
     var Signature = objectAllocator.getSignatureConstructor();
 
+    var tupleTargetMap = new Map<number, DeferredTypeReference>();
+
     var typeCount = 0;
     var symbolCount = 0;
     var totalInstantiationCount = 0;
@@ -16623,8 +16625,16 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
                 links.resolvedType = emptyObjectType;
             }
             else if (!(node.kind === SyntaxKind.TupleType && some(node.elements, e => !!(getTupleElementFlags(e) & ElementFlags.Variadic))) && isDeferredTypeReferenceNode(node)) {
-                links.resolvedType = node.kind === SyntaxKind.TupleType && node.elements.length === 0 ? target :
-                    createDeferredTypeReference(target, node, /*mapper*/ undefined);
+                if (node.kind === SyntaxKind.TupleType && node.elements.length === 0) {
+                    links.resolvedType = target;
+                }
+                else {
+                    links.resolvedType = tupleTargetMap.get(target.id);
+                    if (!links.resolvedType) {
+                        links.resolvedType = createDeferredTypeReference(target, node, /*mapper*/ undefined);
+                        tupleTargetMap.set(target.id, links.resolvedType as DeferredTypeReference);
+                    }
+                }
             }
             else {
                 const elementTypes = node.kind === SyntaxKind.ArrayType ? [getTypeFromTypeNode(node.elementType)] : map(node.elements, getTypeFromTypeNode);
