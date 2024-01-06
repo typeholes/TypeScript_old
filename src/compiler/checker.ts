@@ -6352,6 +6352,49 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
         }
     }
 
+    function typeMapperToString(mapper: TypeMapper, indent = ""): string {
+        let ret = "\n" + indent;
+        ret += ["simple", "array", "deferred", "function", "composite", "merged"][mapper.kind];
+        switch (mapper.kind) {
+            case TypeMapKind.Simple:
+                addType("src", mapper.source);
+                addType("tgt", mapper.target);
+                break;
+            case TypeMapKind.Array:
+                const targets = mapper.targets ?? [];
+                for (let i = 0; i < mapper.sources.length; i++) {
+                    addType("src", mapper.sources[i]);
+                    addType("tgt", targets[i]);
+                }
+                break;
+            case TypeMapKind.Deferred:
+                for (let i = 0; i < mapper.sources.length; i++) {
+                    addType("src", mapper.sources[i]);
+                    ret += `\n${mapper.targets[i]}`;
+                }
+                break;
+            case TypeMapKind.Function:
+                ret += `func: ${mapper.func}`;
+                break;
+            case TypeMapKind.Composite: // fallthrough
+            case TypeMapKind.Merged:
+                ret += typeMapperToString(mapper.mapper1, indent + "   ");
+                ret += typeMapperToString(mapper.mapper2, indent + "   ");
+                break;
+        }
+
+        return ret;
+
+        function addType(label: string, type: Type | undefined) {
+            ret += `\n${indent}- ${label} `;
+            if (type) {
+                ret += type.symbol ? `${type.id} ${symbolToString(type.symbol)} ` : "undefined";
+                if (type.aliasSymbol) ret += symbolToString(type.aliasSymbol) + " ";
+                ret += getTypeListId(type.aliasTypeArguments);
+            }
+        }
+    }
+
     function signatureToString(signature: Signature, enclosingDeclaration?: Node, flags = TypeFormatFlags.None, kind?: SignatureKind, writer?: EmitTextWriter): string {
         return writer ? signatureToStringWorker(writer).getText() : usingSingleLineStringWriter(signatureToStringWorker);
 
@@ -19770,7 +19813,20 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
     }
 
     function instantiateTypeWithAlias(type: Type, mapper: TypeMapper, aliasSymbol: Symbol | undefined, aliasTypeArguments: readonly Type[] | undefined): Type {
+        const typeString = `
+${type.id}
+${type.symbol?.id}
+${type.symbol ? symbolToString(type.symbol) : "undefined"}
+${aliasSymbol?.id}
+${aliasSymbol ? symbolToString(aliasSymbol) : "undefined"}
+${(aliasTypeArguments ?? []).map(a => a.id).join(" ")}
+${typeMapperToString(mapper)}
+`;
+        // console.log("----------------------------------------------------------------------------------------------------------------------------------");
+        // console.log({ typeId: type.id, instantiationDepth, instantiationCount, typeString, stack: [...instantiatedTypeStrings.values()] });
+        // console.log(typeMapperToString(mapper));
         if (!couldContainTypeVariables(type)) {
+//            console.log("can't contain type variables");
             return type;
         }
         if (instantiationDepth === 100 || instantiationCount >= 5000000) {
@@ -19785,13 +19841,11 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
         totalInstantiationCount++;
         instantiationCount++;
         instantiationDepth++;
-        const typeString = `${type.id} ${aliasSymbol ? symbolToString(aliasSymbol) : "undefined"} ${(aliasTypeArguments ?? []).map(a => a.id).join(" ")}`;
         // tracing?.instant(
         //     tracing.Phase.CheckTypes,
         //     "instantiateType_TypeString",
         //     { typeId: type.id, instantiationDepth, instantiationCount, typeString },
         // );
-        const result = instantiateTypeWorker(type, mapper, aliasSymbol, aliasTypeArguments);
 
         if (instantiatedTypeStrings.has(typeString)) {
             tracing?.instant(
@@ -19807,6 +19861,8 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
             return errorType;
         }
         instantiatedTypeStrings.add(typeString);
+
+        const result = instantiateTypeWorker(type, mapper, aliasSymbol, aliasTypeArguments);
 
         instantiatedTypeStrings.delete(typeString);
         instantiationDepth--;
@@ -24895,7 +24951,10 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
                     clearCachedInferences(context.inferences);
                     inference.isFixed = true;
                 }
-                return getInferredType(context, i);
+                const ret = getInferredType(context, i);
+                // console.log({ inferredType: { id: ret.id, symbol: ret.symbol ? symbolToString(ret.symbol) : "undefined" } });
+                // console.log(checker.typeToString(ret));
+                return ret;
             }),
         );
     }
