@@ -93,6 +93,7 @@ import {
     DestructuringAssignment,
     Diagnostic,
     DiagnosticArgument,
+    DiagnosticArguments,
     DiagnosticCollection,
     DiagnosticMessage,
     DiagnosticMessageChain,
