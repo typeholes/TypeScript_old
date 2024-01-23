@@ -49,6 +49,7 @@ import {
     DefinitionInfo,
     DefinitionInfoAndBoundSpan,
     Diagnostic,
+    DiagnosticCategory,
     DiagnosticWithLocation,
     directoryProbablyExists,
     DocCommentTemplateOptions,
@@ -92,6 +93,7 @@ import {
     GetCompletionsAtPositionOptions,
     getContainerNode,
     getDefaultLibFileName,
+    getDiagnosticArgValue,
     getDirectoryPath,
     getEditsForFileRename as ts_getEditsForFileRename,
     getEmitDeclarations,
@@ -1990,6 +1992,57 @@ export function createLanguageService(
         // Therefore only get diagnostics for given file.
 
         const semanticDiagnostics = program.getSemanticDiagnostics(targetSourceFile, cancellationToken);
+
+        for (const diag of semanticDiagnostics) {
+            if (diag.args && diag.args.length > 0) {
+                diag.relatedInformation ??= [];
+                for (let argIdx = 0; argIdx <= diag.args.length; argIdx++) {
+                    const arg = diag.args[argIdx];
+                    if (arg === undefined) continue;
+                    // eslint-disable-next-line local/no-in-operator
+                    if (typeof arg === "object" && "text" in arg) {
+                        if (arg.cacheId) {
+                            const value = getDiagnosticArgValue(arg.cacheId);
+                            let argNode: Node | undefined;
+                            // eslint-disable-next-line local/no-in-operator
+                            if ("kind" in value && "pos" in value && "end" in value) {
+                                argNode = value;
+                            }
+                            // eslint-disable-next-line local/no-in-operator
+                            else if ("isUnion" in value) {
+                                const symbol = value.symbol ?? value.aliasSymbol;
+                                const decls = symbol.getDeclarations();
+                                if (decls && decls.length > 0) {
+                                    argNode = decls[0];
+                                }
+                            }
+
+                            if (argNode) {
+                                const sourceFile = argNode.getSourceFile();
+                                diag.relatedInformation?.push({
+                                    category: DiagnosticCategory.ArgDestination,
+                                    code: argIdx,
+                                    file: sourceFile,
+                                    start: argNode.pos,
+                                    length: argNode.end - argNode.pos,
+                                    messageText: arg.text,
+                                });
+                                continue;
+                            }
+                        }
+                    }
+                    diag.relatedInformation?.push({
+                        category: DiagnosticCategory.ArgDestination,
+                        code: argIdx,
+                        file: undefined, // SourceFile
+                        start: undefined,
+                        length: undefined,
+                        messageText: typeof arg === "string" ? arg : typeof arg === "number" ? `${arg}` : arg.text,
+                    });
+                }
+            }
+        }
+
         if (!getEmitDeclarations(program.getCompilerOptions())) {
             return semanticDiagnostics.slice();
         }

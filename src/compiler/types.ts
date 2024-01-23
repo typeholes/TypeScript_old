@@ -7021,6 +7021,7 @@ export enum DiagnosticCategory {
     Error,
     Suggestion,
     Message,
+    ArgDestination,
 }
 /** @internal */
 export function diagnosticCategoryName(d: { category: DiagnosticCategory; }, lowerCase = true): string {

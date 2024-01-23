@@ -694,6 +694,8 @@ function getCategoryFormat(category: DiagnosticCategory): ForegroundColorEscapeS
             return Debug.fail("Should never get an Info diagnostic on the command line.");
         case DiagnosticCategory.Message:
             return ForegroundColorEscapeSequences.Blue;
+        case DiagnosticCategory.ArgDestination:
+            return ForegroundColorEscapeSequences.Cyan;
     }
 }
 
