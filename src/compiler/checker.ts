@@ -9736,7 +9736,6 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
     }
 
     function resolutionTargetToDiagnosticArg(target: TypeSystemEntity) {
-
         try {
             // eslint-disable-next-line local/no-in-operator
             if ("kind" in target) {
