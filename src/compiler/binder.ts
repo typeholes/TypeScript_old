@@ -44,7 +44,7 @@ import {
     declarationNameToString,
     DeleteExpression,
     DestructuringAssignment,
-    DiagnosticArgument,
+    DiagnosticArguments,
     DiagnosticCategory,
     DiagnosticMessage,
     DiagnosticRelatedInformation,

@@ -140,6 +140,7 @@ import {
     Diagnostic,
     DiagnosticAndArguments,
     DiagnosticArgument,
+    DiagnosticArguments,
     diagnosticArgumentToText,
     DiagnosticCategory,
     DiagnosticMessage,

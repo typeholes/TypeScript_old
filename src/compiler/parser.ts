@@ -61,7 +61,7 @@ import {
     DefaultClause,
     DeleteExpression,
     Diagnostic,
-    DiagnosticArgument,
+    DiagnosticArguments,
     DiagnosticMessage,
     Diagnostics,
     DiagnosticWithDetachedLocation,

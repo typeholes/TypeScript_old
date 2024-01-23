@@ -32,7 +32,7 @@ import {
     CustomTransformers,
     Debug,
     Diagnostic,
-    DiagnosticArgument,
+    DiagnosticArguments,
     DiagnosticCollection,
     DiagnosticMessage,
     DiagnosticReporter,

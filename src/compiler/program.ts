@@ -54,7 +54,7 @@ import {
     Debug,
     DeclarationWithTypeParameterChildren,
     Diagnostic,
-    DiagnosticArgument,
+    DiagnosticArguments,
     DiagnosticCategory,
     diagnosticCategoryName,
     DiagnosticMessage,

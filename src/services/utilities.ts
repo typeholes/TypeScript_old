@@ -43,7 +43,7 @@ import {
     DeleteExpression,
     Diagnostic,
     DiagnosticAndArguments,
-    DiagnosticArgument,
+    DiagnosticArguments,
     DiagnosticMessage,
     DiagnosticWithLocation,
     directoryProbablyExists,

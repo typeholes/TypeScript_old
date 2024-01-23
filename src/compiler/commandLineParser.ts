@@ -23,7 +23,7 @@ import {
     createGetCanonicalFileName,
     Debug,
     Diagnostic,
-    DiagnosticArgument,
+    DiagnosticArguments,
     DiagnosticMessage,
     Diagnostics,
     DidYouMeanOptionsDiagnostics,
