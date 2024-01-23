@@ -3081,7 +3081,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
     function lookupOrIssueError(
         location: Node | undefined,
         message: DiagnosticMessage,
-        ...args: DiagnosticArgument[]
+        ...args: DiagnosticArguments
     ): Diagnostic {
         const diagnostic = location
             ? createDiagnosticForNode(location, message, ...args)
@@ -3100,7 +3100,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
         key: keyof CompilerOptions,
         location: Node | undefined,
         message: DiagnosticMessage,
-        ...args: DiagnosticArgument[]
+        ...args: DiagnosticArguments
     ): Diagnostic {
         const diagnostic = error(location, message, ...args);
         diagnostic.skippedOn = key;
@@ -3110,7 +3110,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
     function createError(
         location: Node | undefined,
         message: DiagnosticMessage,
-        ...args: DiagnosticArgument[]
+        ...args: DiagnosticArguments
     ): Diagnostic {
         return location
             ? createDiagnosticForNode(location, message, ...args)
@@ -3120,7 +3120,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
     function error(
         location: Node | undefined,
         message: DiagnosticMessage,
-        ...args: DiagnosticArgument[]
+        ...args: DiagnosticArguments
     ): Diagnostic {
         const diagnostic = createError(location, message, ...args);
         diagnostics.add(diagnostic);
@@ -3142,7 +3142,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
         isError: boolean,
         location: Node,
         message: DiagnosticMessage | DiagnosticMessageChain,
-        ...args: DiagnosticArgument[]
+        ...args: DiagnosticArguments
     ): void {
         // Pseudo-synthesized input node
         if (location.pos < 0 || location.end < 0) {
@@ -3161,7 +3161,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
         location: Node,
         maybeMissingAwait: boolean,
         message: DiagnosticMessage,
-        ...args: DiagnosticArgument[]
+        ...args: DiagnosticArguments
     ): Diagnostic {
         const diagnostic = error(location, message, ...args);
         if (maybeMissingAwait) {
@@ -34374,7 +34374,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
 
     type ErrorReporter = (
         message: DiagnosticMessage,
-        ...args: DiagnosticArgument[]
+        ...args: DiagnosticArguments
     ) => void;
 
     /**
@@ -35300,7 +35300,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
 
         function reportIncompatibleError(
             message: DiagnosticMessage,
-            ...args: DiagnosticArgument[]
+            ...args: DiagnosticArguments
         ) {
             overrideNextErrorInfo++; // Suppress the next relation error
             lastSkippedInfo = undefined; // Reset skipped info cache
@@ -35462,7 +35462,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
 
         function reportError(
             message: DiagnosticMessage,
-            ...args: DiagnosticArgument[]
+            ...args: DiagnosticArguments
         ): void {
             Debug.assert(!!errorNode);
             if (incompatibleStack) reportIncompatibleStack();
@@ -35477,7 +35477,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
 
         function reportParentSkippedError(
             message: DiagnosticMessage,
-            ...args: DiagnosticArgument[]
+            ...args: DiagnosticArguments
         ): void {
             reportError(message, ...args);
             skipParentCounter++;
@@ -56905,7 +56905,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
     function getDiagnosticForCallNode(
         node: CallLikeExpression,
         message: DiagnosticMessage | DiagnosticMessageChain,
-        ...args: DiagnosticArgument[]
+        ...args: DiagnosticArguments
     ): DiagnosticWithLocation {
         if (isCallExpression(node)) {
             const { sourceFile, start, length } = getDiagnosticSpanForCallNode(node);
@@ -67540,7 +67540,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
         type: Type,
         errorNode?: Node,
         diagnosticMessage?: DiagnosticMessage,
-        ...args: DiagnosticArgument[]
+        ...args: DiagnosticArguments
     ): Type | undefined {
         const promisedType = getPromisedTypeOfPromise(type, errorNode);
         return (
@@ -67687,7 +67687,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
         withAlias: boolean,
         errorNode: Node,
         diagnosticMessage: DiagnosticMessage,
-        ...args: DiagnosticArgument[]
+        ...args: DiagnosticArguments
     ): Type {
         const awaitedType = withAlias
             ? getAwaitedType(type, errorNode, diagnosticMessage, ...args)
@@ -67827,7 +67827,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
         type: Type,
         errorNode?: Node,
         diagnosticMessage?: DiagnosticMessage,
-        ...args: DiagnosticArgument[]
+        ...args: DiagnosticArguments
     ): Type | undefined {
         const awaitedType = getAwaitedTypeNoAlias(
             type,
@@ -67847,7 +67847,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
         type: Type,
         errorNode?: Node,
         diagnosticMessage?: DiagnosticMessage,
-        ...args: DiagnosticArgument[]
+        ...args: DiagnosticArguments
     ): Type | undefined {
         if (isTypeAny(type)) {
             return type;
@@ -82235,7 +82235,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
     function grammarErrorOnFirstToken(
         node: Node,
         message: DiagnosticMessage,
-        ...args: DiagnosticArgument[]
+        ...args: DiagnosticArguments
     ): boolean {
         const sourceFile = getSourceFileOfNode(node);
         if (!hasParseDiagnostics(sourceFile)) {
@@ -82259,7 +82259,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
         start: number,
         length: number,
         message: DiagnosticMessage,
-        ...args: DiagnosticArgument[]
+        ...args: DiagnosticArguments
     ): boolean {
         const sourceFile = getSourceFileOfNode(nodeForSourceFile);
         if (!hasParseDiagnostics(sourceFile)) {
@@ -82275,7 +82275,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
         key: keyof CompilerOptions,
         node: Node,
         message: DiagnosticMessage,
-        ...args: DiagnosticArgument[]
+        ...args: DiagnosticArguments
     ): boolean {
         const sourceFile = getSourceFileOfNode(node);
         if (!hasParseDiagnostics(sourceFile)) {
@@ -82288,7 +82288,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
     function grammarErrorOnNode(
         node: Node,
         message: DiagnosticMessage,
-        ...args: DiagnosticArgument[]
+        ...args: DiagnosticArguments
     ): boolean {
         const sourceFile = getSourceFileOfNode(node);
         if (!hasParseDiagnostics(sourceFile)) {
@@ -82604,7 +82604,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
     function grammarErrorAfterFirstToken(
         node: Node,
         message: DiagnosticMessage,
-        ...args: DiagnosticArgument[]
+        ...args: DiagnosticArguments
     ): boolean {
         const sourceFile = getSourceFileOfNode(node);
         if (!hasParseDiagnostics(sourceFile)) {

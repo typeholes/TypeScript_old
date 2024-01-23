@@ -2500,7 +2500,7 @@ export function entityNameToString(
 export function createDiagnosticForNode(
     node: Node,
     message: DiagnosticMessage,
-    ...args: DiagnosticArgument[]
+    ...args: DiagnosticArguments
 ): DiagnosticWithLocation {
     const sourceFile = getSourceFileOfNode(node);
     return createDiagnosticForNodeInSourceFile(
@@ -2516,7 +2516,7 @@ export function createDiagnosticForNodeArray(
     sourceFile: SourceFile,
     nodes: NodeArray<Node>,
     message: DiagnosticMessage,
-    ...args: DiagnosticArgument[]
+    ...args: DiagnosticArguments
 ): DiagnosticWithLocation {
     const start = skipTrivia(sourceFile.text, nodes.pos);
     return createFileDiagnostic(
@@ -2533,7 +2533,7 @@ export function createDiagnosticForNodeInSourceFile(
     sourceFile: SourceFile,
     node: Node,
     message: DiagnosticMessage,
-    ...args: DiagnosticArgument[]
+    ...args: DiagnosticArguments
 ): DiagnosticWithLocation {
     const span = getErrorSpanForNode(sourceFile, node);
     return createFileDiagnostic(
@@ -10705,7 +10705,7 @@ export function setObjectAllocator(alloc: ObjectAllocator) {
 /** @internal */
 export function formatStringFromArgs(
     text: string,
-    args: DiagnosticArgument[],
+    args: DiagnosticArguments,
 ): string {
     return text.replace(
         /{(\d+)}/g,
@@ -10793,7 +10793,7 @@ export function createDetachedDiagnostic(
     start: number,
     length: number,
     message: DiagnosticMessage,
-    ...args: DiagnosticArgument[]
+    ...args: DiagnosticArguments
 ): DiagnosticWithDetachedLocation {
     if (start + length > sourceText.length) {
         length = sourceText.length - start;
@@ -10890,7 +10890,7 @@ export function createFileDiagnostic(
     start: number,
     length: number,
     message: DiagnosticMessage,
-    ...args: DiagnosticArgument[]
+    ...args: DiagnosticArguments
 ): DiagnosticWithLocation {
     assertDiagnosticLocation(file.text, start, length);
 
@@ -10917,7 +10917,7 @@ export function createFileDiagnostic(
 /** @internal */
 export function formatMessage(
     message: DiagnosticMessage,
-    ...args: DiagnosticArgument[]
+    ...args: DiagnosticArguments
 ): string {
     let text = getLocaleSpecificMessage(message);
 
@@ -10976,7 +10976,7 @@ export function createCompilerDiagnosticFromMessageChain(
 export function chainDiagnosticMessages(
     details: DiagnosticMessageChain | DiagnosticMessageChain[] | undefined,
     message: DiagnosticMessage,
-    ...args: DiagnosticArgument[]
+    ...args: DiagnosticArguments
 ): DiagnosticMessageChain {
     let text = getLocaleSpecificMessage(message);
 

@@ -4141,7 +4141,7 @@ export type DiagnosticOrDiagnosticAndArguments = DiagnosticMessage | DiagnosticA
 /** @internal */
 export function diagnosticToString(diag: DiagnosticOrDiagnosticAndArguments): string {
     return isArray(diag)
-        ? formatStringFromArgs(getLocaleSpecificMessage(diag[0]), diag.slice(1) as DiagnosticArgument[])
+        ? formatStringFromArgs(getLocaleSpecificMessage(diag[0]), diag.slice(1) as DiagnosticArguments)
         : getLocaleSpecificMessage(diag);
 }
 

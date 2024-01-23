@@ -1703,7 +1703,7 @@ export function createCompilerDiagnosticForInvalidCustomType(opt: CommandLineOpt
     return createDiagnosticForInvalidCustomType(opt, createCompilerDiagnostic);
 }
 
-function createDiagnosticForInvalidCustomType(opt: CommandLineOptionOfCustomType, createDiagnostic: (message: DiagnosticMessage, ...args: DiagnosticArgument[]) => Diagnostic): Diagnostic {
+function createDiagnosticForInvalidCustomType(opt: CommandLineOptionOfCustomType, createDiagnostic: (message: DiagnosticMessage, ...args: DiagnosticArguments) => Diagnostic): Diagnostic {
     const namesOfType = arrayFrom(opt.type.keys());
     const stringNames = (opt.deprecatedKeys ? namesOfType.filter(k => !opt.deprecatedKeys!.has(k)) : namesOfType).map(key => `'${key}'`).join(", ");
     return createDiagnostic(Diagnostics.Argument_for_0_option_must_be_Colon_1, `--${opt.name}`, stringNames);
@@ -3006,7 +3006,7 @@ function parseJsonConfigFileContentWorker(
         return "no-prop";
     }
 
-    function createCompilerDiagnosticOnlyIfJson(message: DiagnosticMessage, ...args: DiagnosticArgument[]) {
+    function createCompilerDiagnosticOnlyIfJson(message: DiagnosticMessage, ...args: DiagnosticArguments) {
         if (!sourceFile) {
             errors.push(createCompilerDiagnostic(message, ...args));
         }
@@ -3454,7 +3454,7 @@ function convertOptionsFromJson(optionsNameMap: Map<string, CommandLineOption>, 
     return defaultOptions;
 }
 
-function createDiagnosticForNodeInSourceFileOrCompilerDiagnostic(sourceFile: TsConfigSourceFile | undefined, node: Node | undefined, message: DiagnosticMessage, ...args: DiagnosticArgument[]) {
+function createDiagnosticForNodeInSourceFileOrCompilerDiagnostic(sourceFile: TsConfigSourceFile | undefined, node: Node | undefined, message: DiagnosticMessage, ...args: DiagnosticArguments) {
     return sourceFile && node ?
         createDiagnosticForNodeInSourceFile(sourceFile, node, message, ...args) :
         createCompilerDiagnostic(message, ...args);

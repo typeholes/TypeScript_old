@@ -4634,7 +4634,7 @@ export interface FilePreprocessingReferencedDiagnostic {
     kind: FilePreprocessingDiagnosticsKind.FilePreprocessingReferencedDiagnostic;
     reason: ReferencedFile;
     diagnostic: DiagnosticMessage;
-    args?: DiagnosticArgument[];
+    args?: DiagnosticArguments;
 }
 
 /** @internal */
@@ -4643,7 +4643,7 @@ export interface FilePreprocessingFileExplainingDiagnostic {
     file?: Path;
     fileProcessingReason: FileIncludeReason;
     diagnostic: DiagnosticMessage;
-    args?: DiagnosticArgument[];
+    args?: DiagnosticArguments;
 }
 
 /** @internal */
@@ -6967,7 +6967,7 @@ export interface DiagnosticMessageChain {
     next?: DiagnosticMessageChain[];
     /** @internal */
     repopulateInfo?: () => RepopulateDiagnosticChainInfo;
-    args: DiagnosticArgument[];
+    args: DiagnosticArguments;
 }
 
 export interface Diagnostic extends DiagnosticRelatedInformation {
@@ -6990,7 +6990,10 @@ export interface StructuredDiagnosticArgument {
 export type DiagnosticArgument = StructuredDiagnosticArgument | string | number; // comment out | string | number to enforce structured arguments
 
 /** @internal */
-export type DiagnosticAndArguments = [message: DiagnosticMessage, ...args: DiagnosticArgument[]];
+export type DiagnosticArguments = DiagnosticArgument[];
+
+/** @internal */
+export type DiagnosticAndArguments = [message: DiagnosticMessage, ...args: DiagnosticArguments];
 
 export interface DiagnosticRelatedInformation {
     category: DiagnosticCategory;
@@ -6999,7 +7002,7 @@ export interface DiagnosticRelatedInformation {
     start: number | undefined;
     length: number | undefined;
     messageText: string | DiagnosticMessageChain;
-    args?: DiagnosticArgument[];
+    args?: DiagnosticArguments;
 }
 
 export interface DiagnosticWithLocation extends Diagnostic {

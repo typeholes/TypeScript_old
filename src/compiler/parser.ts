@@ -2124,11 +2124,11 @@ namespace Parser {
         return inContext(NodeFlags.AwaitContext);
     }
 
-    function parseErrorAtCurrentToken(message: DiagnosticMessage, ...args: DiagnosticArgument[]): DiagnosticWithDetachedLocation | undefined {
+    function parseErrorAtCurrentToken(message: DiagnosticMessage, ...args: DiagnosticArguments): DiagnosticWithDetachedLocation | undefined {
         return parseErrorAt(scanner.getTokenStart(), scanner.getTokenEnd(), message, ...args);
     }
 
-    function parseErrorAtPosition(start: number, length: number, message: DiagnosticMessage, ...args: DiagnosticArgument[]): DiagnosticWithDetachedLocation | undefined {
+    function parseErrorAtPosition(start: number, length: number, message: DiagnosticMessage, ...args: DiagnosticArguments): DiagnosticWithDetachedLocation | undefined {
         // Don't report another error if it would just be at the same position as the last error.
         const lastError = lastOrUndefined(parseDiagnostics);
         let result: DiagnosticWithDetachedLocation | undefined;
@@ -2143,11 +2143,11 @@ namespace Parser {
         return result;
     }
 
-    function parseErrorAt(start: number, end: number, message: DiagnosticMessage, ...args: DiagnosticArgument[]): DiagnosticWithDetachedLocation | undefined {
+    function parseErrorAt(start: number, end: number, message: DiagnosticMessage, ...args: DiagnosticArguments): DiagnosticWithDetachedLocation | undefined {
         return parseErrorAtPosition(start, end - start, message, ...args);
     }
 
-    function parseErrorAtRange(range: TextRange, message: DiagnosticMessage, ...args: DiagnosticArgument[]): void {
+    function parseErrorAtRange(range: TextRange, message: DiagnosticMessage, ...args: DiagnosticArguments): void {
         parseErrorAt(range.pos, range.end, message, ...args);
     }
 
@@ -2592,9 +2592,9 @@ namespace Parser {
         return node;
     }
 
-    function createMissingNode<T extends Node>(kind: T["kind"], reportAtCurrentPosition: false, diagnosticMessage?: DiagnosticMessage, ...args: DiagnosticArgument[]): T;
-    function createMissingNode<T extends Node>(kind: T["kind"], reportAtCurrentPosition: boolean, diagnosticMessage: DiagnosticMessage, ...args: DiagnosticArgument[]): T;
-    function createMissingNode<T extends Node>(kind: T["kind"], reportAtCurrentPosition: boolean, diagnosticMessage?: DiagnosticMessage, ...args: DiagnosticArgument[]): T {
+    function createMissingNode<T extends Node>(kind: T["kind"], reportAtCurrentPosition: false, diagnosticMessage?: DiagnosticMessage, ...args: DiagnosticArguments): T;
+    function createMissingNode<T extends Node>(kind: T["kind"], reportAtCurrentPosition: boolean, diagnosticMessage: DiagnosticMessage, ...args: DiagnosticArguments): T;
+    function createMissingNode<T extends Node>(kind: T["kind"], reportAtCurrentPosition: boolean, diagnosticMessage?: DiagnosticMessage, ...args: DiagnosticArguments): T {
         if (reportAtCurrentPosition) {
             parseErrorAtPosition(scanner.getTokenFullStart(), 0, diagnosticMessage!, ...args);
         }
