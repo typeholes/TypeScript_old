@@ -1994,7 +1994,7 @@ export function createLanguageService(
         const semanticDiagnostics = program.getSemanticDiagnostics(targetSourceFile, cancellationToken);
 
         for (const diag of semanticDiagnostics) {
-            if (diag.args && diag.args.length > 0) {
+            if (diag.args && diag.args.length > 0 && (diag.relatedInformation === undefined || diag.relatedInformation.length === 0)) {
                 diag.relatedInformation ??= [];
                 for (let argIdx = 0; argIdx <= diag.args.length; argIdx++) {
                     const arg = diag.args[argIdx];
@@ -2019,13 +2019,13 @@ export function createLanguageService(
 
                             if (argNode) {
                                 const sourceFile = argNode.getSourceFile();
-                                diag.relatedInformation?.push({
+                                diag.relatedInformation.push({
                                     category: DiagnosticCategory.ArgDestination,
                                     code: argIdx,
                                     file: sourceFile,
                                     start: argNode.pos,
                                     length: argNode.end - argNode.pos,
-                                    messageText: arg.text,
+                                    messageText: "hack#TsDiagArg#" + arg.text,
                                 });
                                 continue;
                             }
