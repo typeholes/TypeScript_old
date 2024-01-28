@@ -101,6 +101,7 @@ import {
     countWhere,
     createBinaryExpressionTrampoline,
     createCompilerDiagnostic,
+    createDiagnosticArgument,
     createDiagnosticCollection,
     createDiagnosticForFileFromMessageChain,
     createDiagnosticForNode,
@@ -21506,7 +21507,10 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
                 message = Diagnostics.Argument_of_type_0_is_not_assignable_to_parameter_of_type_1_with_exactOptionalPropertyTypes_Colon_true_Consider_adding_undefined_to_the_types_of_the_target_s_properties;
             }
 
-            reportError(message, generalizedSourceType, targetType);
+            reportError(message,
+                createDiagnosticArgument(generalizedSourceType, generalizedSource, "Type"),
+                createDiagnosticArgument(targetType, target, "Type"),
+                )
         }
 
         function tryElaborateErrorsForPrimitivesAndObjects(source: Type, target: Type) {

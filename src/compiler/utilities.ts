@@ -92,6 +92,7 @@ import {
     DefaultClause,
     DestructuringAssignment,
     Diagnostic,
+    DiagnosticArgument,
     DiagnosticArguments,
     DiagnosticCollection,
     DiagnosticMessage,
@@ -503,6 +504,7 @@ import {
     StringLiteralLike,
     StringLiteralType,
     stringToToken,
+    StructuredDiagnosticArgument,
     SuperCall,
     SuperExpression,
     SuperProperty,
@@ -8277,7 +8279,7 @@ export function setObjectAllocator(alloc: ObjectAllocator) {
 
 /** @internal */
 export function formatStringFromArgs(text: string, args: DiagnosticArguments): string {
-    return text.replace(/{(\d+)}/g, (_match, index: string) => "" + Debug.checkDefined(args[+index]));
+    return text.replace(/{(\d+)}/g, (_match, index: string) => "" + diagnosticArgumentToText(Debug.checkDefined(args[+index])));
 }
 
 let localizedDiagnosticMessages: MapLike<string> | undefined;
@@ -10660,4 +10662,47 @@ export function replaceFirstStar(s: string, replacement: string): string {
 /** @internal */
 export function getNameFromImportAttribute(node: ImportAttribute) {
     return isIdentifier(node.name) ? node.name.escapedText : escapeLeadingUnderscores(node.name.text);
+}
+
+export function diagnosticArgumentToText(arg: DiagnosticArgument) {
+    // eslint-disable-next-line local/no-in-operator
+    return typeof arg === "object" && "text" in arg ? arg.text : arg;
+}
+
+const argCache: (Node | Symbol | Signature | Type | TypePredicate)[] = [];
+const argIndexes = new Map<any, number>();
+
+export function getDiagnosticArgValue(idx: number) {
+    return argCache[idx];
+}
+
+/** @internal */
+export function createDiagnosticArgument<T extends string>(text: string): StructuredDiagnosticArgument;
+/** @internal */
+export function createDiagnosticArgument<T extends Node>(text: string, value: T, type: "Node"): StructuredDiagnosticArgument;
+/** @internal */
+export function createDiagnosticArgument<T extends Symbol>(text: string, value: T, type: "Symbol"): StructuredDiagnosticArgument;
+/** @internal */
+export function createDiagnosticArgument<T extends Signature>(text: string, value: T, type: "Signature"): StructuredDiagnosticArgument;
+/** @internal */
+export function createDiagnosticArgument<T extends Type>(text: string, value: T, type: "Type"): StructuredDiagnosticArgument;
+/** @internal */
+export function createDiagnosticArgument<T extends TypePredicate>(text: string, value: T, type: "TypePredicate"): StructuredDiagnosticArgument;
+/** @internal */
+export function createDiagnosticArgument<T extends Node | Symbol | Signature | Type | TypePredicate | string>(
+    text: string,
+    value?: T,
+    type?: "Node" | "Symbol" | "Signature" | "Type" | "TypePredicate",
+): StructuredDiagnosticArgument {
+    let idx: number | undefined;
+    if (value !== undefined && typeof value !== "string") {
+        if (argIndexes.has(value)) {
+            idx = argIndexes.get(value)!;
+        }
+        else {
+            idx = argCache.push(value) - 1;
+            argIndexes.set(value, idx);
+        }
+    }
+    return { cacheId: idx, type: type ?? "string", text };
 }
