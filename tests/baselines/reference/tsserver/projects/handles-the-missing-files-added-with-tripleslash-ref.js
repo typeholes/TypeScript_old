@@ -92,7 +92,8 @@ Info seq  [hh:mm:ss:mss] response:
           },
           "text": "File '/a/b/commonFile2.ts' not found.",
           "code": 6053,
-          "category": "error"
+          "category": "error",
+          "arguments": []
         },
         {
           "start": {
@@ -105,7 +106,10 @@ Info seq  [hh:mm:ss:mss] response:
           },
           "text": "Cannot find name 'y'.",
           "code": 2304,
-          "category": "error"
+          "category": "error",
+          "arguments": [
+            "y"
+          ]
         }
       ],
       "responseRequired": true

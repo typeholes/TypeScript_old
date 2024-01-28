@@ -239,7 +239,10 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Cannot find module '@angular/core' or its corresponding type declarations.",
             "code": 2307,
-            "category": "error"
+            "category": "error",
+            "arguments": [
+              "@angular/core"
+            ]
           }
         ]
       }
@@ -459,7 +462,10 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Cannot find module '@angular/core' or its corresponding type declarations.",
             "code": 2307,
-            "category": "error"
+            "category": "error",
+            "arguments": [
+              "@angular/core"
+            ]
           }
         ]
       }
@@ -605,7 +611,10 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Cannot find module '@angular/core' or its corresponding type declarations.",
             "code": 2307,
-            "category": "error"
+            "category": "error",
+            "arguments": [
+              "@angular/core"
+            ]
           }
         ]
       }
@@ -713,7 +722,10 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Cannot find module '@angular/core' or its corresponding type declarations.",
             "code": 2307,
-            "category": "error"
+            "category": "error",
+            "arguments": [
+              "@angular/core"
+            ]
           }
         ]
       }

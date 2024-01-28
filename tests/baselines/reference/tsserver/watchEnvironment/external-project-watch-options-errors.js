@@ -195,6 +195,9 @@ Info seq  [hh:mm:ss:mss] [
   {
     "messageText": "File specification cannot contain a parent directory ('..') that appears after a recursive directory wildcard ('**'): '**/../*'.",
     "category": 1,
-    "code": 5065
+    "code": 5065,
+    "arguments": [
+      "**/../*"
+    ]
   }
 ]

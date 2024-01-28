@@ -217,6 +217,9 @@ Info seq  [hh:mm:ss:mss] response:
               "category": "message",
               "code": 1410
             }
+          ],
+          "arguments": [
+            "/a/b/applib.ts"
           ]
         }
       ],

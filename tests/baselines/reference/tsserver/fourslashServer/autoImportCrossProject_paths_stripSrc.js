@@ -471,7 +471,10 @@ Info seq  [hh:mm:ss:mss] response:
           "endLocation": {
             "line": 1,
             "offset": 5
-          }
+          },
+          "arguments": [
+            "dep1"
+          ]
         }
       ]
     }
@@ -716,7 +719,10 @@ Info seq  [hh:mm:ss:mss] response:
           "endLocation": {
             "line": 1,
             "offset": 5
-          }
+          },
+          "arguments": [
+            "dep2"
+          ]
         }
       ]
     }

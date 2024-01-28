@@ -191,7 +191,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'x' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "x"
+            ]
           }
         ]
       }

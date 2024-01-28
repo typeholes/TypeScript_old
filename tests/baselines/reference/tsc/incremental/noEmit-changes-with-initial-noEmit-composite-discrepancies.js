@@ -77,6 +77,7 @@ CleanBuild:
             "messageText": "Duplicate identifier 'arguments'. Compiler uses 'arguments' to initialize rest parameters.",
             "category": 1,
             "code": 2396,
+            "arguments": [],
             "skippedOn": "noEmit"
           }
         ]
@@ -168,6 +169,7 @@ IncrementalBuild:
             "messageText": "Duplicate identifier 'arguments'. Compiler uses 'arguments' to initialize rest parameters.",
             "category": 1,
             "code": 2396,
+            "arguments": [],
             "skippedOn": "noEmit"
           }
         ]

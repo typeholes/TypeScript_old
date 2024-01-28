@@ -490,7 +490,10 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Cannot find module '@microsoft/recognizers-text' or its corresponding type declarations.",
             "code": 2307,
-            "category": "error"
+            "category": "error",
+            "arguments": [
+              "@microsoft/recognizers-text"
+            ]
           }
         ]
       }
@@ -598,7 +601,10 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Cannot find module '@microsoft/recognizers-text' or its corresponding type declarations.",
             "code": 2307,
-            "category": "error"
+            "category": "error",
+            "arguments": [
+              "@microsoft/recognizers-text"
+            ]
           }
         ]
       }

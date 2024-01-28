@@ -27,6 +27,7 @@ import {
     CustomTransformers,
     Debug,
     Diagnostic,
+    DiagnosticArguments,
     DiagnosticCategory,
     DiagnosticMessageChain,
     DiagnosticRelatedInformation,
@@ -104,6 +105,7 @@ export interface ReusableDiagnosticRelatedInformation {
     start: number | undefined;
     length: number | undefined;
     messageText: string | ReusableDiagnosticMessageChain;
+    arguments: DiagnosticArguments;
 }
 
 /** @internal */

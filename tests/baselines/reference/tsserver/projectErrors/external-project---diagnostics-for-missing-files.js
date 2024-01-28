@@ -124,7 +124,10 @@ Info seq  [hh:mm:ss:mss] response:
         {
           "message": "File '/a/b/applib.ts' not found.\n  The file is in the program because:\n    Root file specified for compilation",
           "category": "error",
-          "code": 6053
+          "code": 6053,
+          "arguments": [
+            "/a/b/applib.ts"
+          ]
         }
       ],
       "responseRequired": true
@@ -191,7 +194,10 @@ Info seq  [hh:mm:ss:mss] response:
         {
           "message": "File '/a/b/app.ts' not found.\n  The file is in the program because:\n    Root file specified for compilation",
           "category": "error",
-          "code": 6053
+          "code": 6053,
+          "arguments": [
+            "/a/b/app.ts"
+          ]
         }
       ],
       "responseRequired": true

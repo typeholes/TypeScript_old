@@ -470,6 +470,7 @@ declare namespace ts {
                 reportsUnnecessary?: {};
                 reportsDeprecated?: {};
                 relatedInformation?: DiagnosticRelatedInformation[];
+                arguments: DiagnosticArguments;
             }
             /**
              * Response message for "projectInfo" request
@@ -2279,6 +2280,10 @@ declare namespace ts {
                  * Any related spans the diagnostic may have, such as other locations relevant to an error, such as declarartion sites
                  */
                 relatedInformation?: DiagnosticRelatedInformation[];
+                /**
+                 * structured diagnostic arguments
+                 */
+                arguments?: DiagnosticArguments;
                 /**
                  * The error code of the diagnostic message.
                  */
@@ -7444,6 +7449,7 @@ declare namespace ts {
         messageText: string;
         category: DiagnosticCategory;
         code: number;
+        arguments: DiagnosticArguments;
         next?: DiagnosticMessageChain[];
     }
     interface Diagnostic extends DiagnosticRelatedInformation {
@@ -7453,6 +7459,13 @@ declare namespace ts {
         source?: string;
         relatedInformation?: DiagnosticRelatedInformation[];
     }
+    interface StructuredDiagnosticArgument {
+        cacheId: number | undefined;
+        type: "Type" | "Symbol" | "Node" | "Signature" | "TypePredicate" | "string";
+        text: string;
+    }
+    type DiagnosticArgument = StructuredDiagnosticArgument | string | number;
+    type DiagnosticArguments = DiagnosticArgument[];
     interface DiagnosticRelatedInformation {
         category: DiagnosticCategory;
         code: number;
@@ -7460,6 +7473,7 @@ declare namespace ts {
         start: number | undefined;
         length: number | undefined;
         messageText: string | DiagnosticMessageChain;
+        arguments: DiagnosticArguments;
     }
     interface DiagnosticWithLocation extends Diagnostic {
         file: SourceFile;
@@ -9272,6 +9286,8 @@ declare namespace ts {
      * ```
      */
     function getJSDocCommentsAndTags(hostNode: Node): readonly (JSDoc | JSDocTag)[];
+    function diagnosticArgumentToText(arg: DiagnosticArgument): string | number;
+    function getDiagnosticArgValue(idx: number): Node | Symbol | Type | Signature | TypePredicate;
     /** @deprecated */
     function createUnparsedSourceFile(text: string): UnparsedSource;
     /** @deprecated */
@@ -9923,6 +9939,7 @@ declare namespace ts {
     function formatDiagnostic(diagnostic: Diagnostic, host: FormatDiagnosticsHost): string;
     function formatDiagnosticsWithColorAndContext(diagnostics: readonly Diagnostic[], host: FormatDiagnosticsHost): string;
     function flattenDiagnosticMessageText(diag: string | DiagnosticMessageChain | undefined, newLine: string, indent?: number): string;
+    function flattenDiagnosticMessageArguments(chain: DiagnosticMessageChain | string | undefined, args?: DiagnosticArguments): DiagnosticArguments;
     /**
      * Calculates the resulting resolution mode for some reference in some file - this is generally the explicitly
      * provided resolution mode in the reference, unless one is not present, in which case it is the mode of the containing file.

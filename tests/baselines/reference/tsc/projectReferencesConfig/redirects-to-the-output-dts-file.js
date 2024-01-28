@@ -78,7 +78,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 
 
 //// [/beta/bin/tsconfig.tsbuildinfo]
-{"program":{"fileNames":["../../lib/lib.d.ts","../../alpha/bin/a.d.ts","../b.ts"],"fileInfos":[{"version":"3858781397-/// <reference no-default-lib=\"true\"/>\ninterface Boolean {}\ninterface Function {}\ninterface CallableFunction {}\ninterface NewableFunction {}\ninterface IArguments {}\ninterface Number { toExponential: any; }\ninterface Object {}\ninterface RegExp {}\ninterface String { charAt: any; }\ninterface Array<T> { length: number; [n: number]: T; }\ninterface ReadonlyArray<T> {}\ndeclare const console: { log(msg: any): void; };","affectsGlobalScope":true},"-3531955686-export { };",{"version":"-4853599800-import { m } from '../alpha/a'","signature":"-3531856636-export {};\n"}],"root":[3],"options":{"composite":true,"outDir":"./"},"fileIdsList":[[2]],"referencedMap":[[3,1]],"exportedModulesMap":[],"semanticDiagnosticsPerFile":[2,[3,[{"file":"../b.ts","start":9,"length":1,"messageText":"Module '\"../alpha/a\"' has no exported member 'm'.","category":1,"code":2305}]],1],"latestChangedDtsFile":"./b.d.ts"},"version":"FakeTSVersion"}
+{"program":{"fileNames":["../../lib/lib.d.ts","../../alpha/bin/a.d.ts","../b.ts"],"fileInfos":[{"version":"3858781397-/// <reference no-default-lib=\"true\"/>\ninterface Boolean {}\ninterface Function {}\ninterface CallableFunction {}\ninterface NewableFunction {}\ninterface IArguments {}\ninterface Number { toExponential: any; }\ninterface Object {}\ninterface RegExp {}\ninterface String { charAt: any; }\ninterface Array<T> { length: number; [n: number]: T; }\ninterface ReadonlyArray<T> {}\ndeclare const console: { log(msg: any): void; };","affectsGlobalScope":true},"-3531955686-export { };",{"version":"-4853599800-import { m } from '../alpha/a'","signature":"-3531856636-export {};\n"}],"root":[3],"options":{"composite":true,"outDir":"./"},"fileIdsList":[[2]],"referencedMap":[[3,1]],"exportedModulesMap":[],"semanticDiagnosticsPerFile":[2,[3,[{"file":"../b.ts","start":9,"length":1,"messageText":"Module '\"../alpha/a\"' has no exported member 'm'.","category":1,"code":2305,"arguments":["\"../alpha/a\"","m"]}]],1],"latestChangedDtsFile":"./b.d.ts"},"version":"FakeTSVersion"}
 
 //// [/beta/bin/tsconfig.tsbuildinfo.readable.baseline.txt]
 {
@@ -143,7 +143,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
             "length": 1,
             "messageText": "Module '\"../alpha/a\"' has no exported member 'm'.",
             "category": 1,
-            "code": 2305
+            "code": 2305,
+            "arguments": [
+              "\"../alpha/a\"",
+              "m"
+            ]
           }
         ]
       ],
@@ -152,6 +156,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
     "latestChangedDtsFile": "./b.d.ts"
   },
   "version": "FakeTSVersion",
-  "size": 1054
+  "size": 1089
 }
 

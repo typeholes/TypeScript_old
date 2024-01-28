@@ -293,7 +293,10 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Cannot find name 'fnErr'.",
             "code": 2304,
-            "category": "error"
+            "category": "error",
+            "arguments": [
+              "fnErr"
+            ]
           }
         ]
       }
@@ -496,7 +499,10 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Cannot find name 'fnErr'.",
             "code": 2304,
-            "category": "error"
+            "category": "error",
+            "arguments": [
+              "fnErr"
+            ]
           }
         ]
       }

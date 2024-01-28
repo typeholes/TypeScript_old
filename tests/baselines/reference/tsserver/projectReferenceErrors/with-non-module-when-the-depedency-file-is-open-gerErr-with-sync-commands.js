@@ -433,7 +433,10 @@ Info seq  [hh:mm:ss:mss] response:
           },
           "text": "Cannot find name 'fnErr'.",
           "code": 2304,
-          "category": "error"
+          "category": "error",
+          "arguments": [
+            "fnErr"
+          ]
         }
       ],
       "responseRequired": true
@@ -501,7 +504,8 @@ Info seq  [hh:mm:ss:mss] response:
           },
           "text": "Type 'number' is not assignable to type 'string'.",
           "code": 2322,
-          "category": "error"
+          "category": "error",
+          "arguments": []
         }
       ],
       "responseRequired": true
@@ -571,7 +575,10 @@ Info seq  [hh:mm:ss:mss] response:
           },
           "text": "Cannot find name 'fnErr'.",
           "code": 2304,
-          "category": "error"
+          "category": "error",
+          "arguments": [
+            "fnErr"
+          ]
         }
       ],
       "responseRequired": true
@@ -699,7 +706,8 @@ Info seq  [hh:mm:ss:mss] response:
           },
           "text": "Type 'number' is not assignable to type 'string'.",
           "code": 2322,
-          "category": "error"
+          "category": "error",
+          "arguments": []
         }
       ],
       "responseRequired": true

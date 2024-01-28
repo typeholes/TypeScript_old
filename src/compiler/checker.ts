@@ -34759,7 +34759,7 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
                     let diag: Diagnostic;
                     if (every(diags, d => d.start === diags[0].start && d.length === diags[0].length && d.file === diags[0].file)) {
                         const { file, start, length } = diags[0];
-                        diag = { file, start, length, code: chain.code, category: chain.category, messageText: chain, relatedInformation: related };
+                        diag = { file, start, length, code: chain.code, category: chain.category, messageText: chain, relatedInformation: related, arguments: chain.arguments };
                     }
                     else {
                         diag = createDiagnosticForNodeFromMessageChain(getSourceFileOfNode(node), getErrorNodeForCallNode(node), chain, related);

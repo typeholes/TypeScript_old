@@ -88,6 +88,7 @@ describe("unittests:: tsserver:: externalProjects", () => {
                                 length: 3,
                                 messageText: `Plugin diagnostic`,
                                 start: 0,
+                                arguments: [],
                             });
                             return prev;
                         };

@@ -119,7 +119,8 @@ Info seq  [hh:mm:ss:mss] response:
           },
           "text": "Plugin diagnostic",
           "code": 9999,
-          "category": "warning"
+          "category": "warning",
+          "arguments": []
         }
       ],
       "responseRequired": true

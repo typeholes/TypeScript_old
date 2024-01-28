@@ -326,7 +326,10 @@ Info seq  [hh:mm:ss:mss] response:
           "endLocation": {
             "line": 1,
             "offset": 8
-          }
+          },
+          "arguments": [
+            "Tooltip"
+          ]
         }
       ]
     }

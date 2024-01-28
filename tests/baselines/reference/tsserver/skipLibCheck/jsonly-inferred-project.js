@@ -406,7 +406,8 @@ Info seq  [hh:mm:ss:mss] response:
           },
           "text": "Statements are not allowed in ambient contexts.",
           "code": 1036,
-          "category": "error"
+          "category": "error",
+          "arguments": []
         },
         {
           "start": {
@@ -437,6 +438,11 @@ Info seq  [hh:mm:ss:mss] response:
               "category": "message",
               "code": 6203
             }
+          ],
+          "arguments": [
+            "name",
+            "string",
+            "number"
           ]
         }
       ],

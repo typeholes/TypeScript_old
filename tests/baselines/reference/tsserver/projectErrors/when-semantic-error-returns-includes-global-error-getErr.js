@@ -227,7 +227,8 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "An async function or method must return a 'Promise'. Make sure you have a declaration for 'Promise' or include 'ES2015' in your '--lib' option.",
             "code": 2697,
-            "category": "error"
+            "category": "error",
+            "arguments": []
           }
         ]
       }

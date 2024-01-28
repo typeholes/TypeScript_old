@@ -118,7 +118,8 @@ Info seq  [hh:mm:ss:mss] response:
           "endLocation": {
             "line": 1,
             "offset": 8
-          }
+          },
+          "arguments": []
         },
         {
           "message": "Expression expected.",
@@ -133,7 +134,10 @@ Info seq  [hh:mm:ss:mss] response:
           "endLocation": {
             "line": 1,
             "offset": 9
-          }
+          },
+          "arguments": [
+            ";"
+          ]
         }
       ]
     }

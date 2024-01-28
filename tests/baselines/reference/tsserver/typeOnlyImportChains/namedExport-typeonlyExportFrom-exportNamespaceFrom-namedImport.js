@@ -113,7 +113,8 @@ Info seq  [hh:mm:ss:mss] response:
           },
           "text": "Property 'A' does not exist on type 'typeof import(\"/b\")'.",
           "code": 2339,
-          "category": "error"
+          "category": "error",
+          "arguments": []
         }
       ],
       "responseRequired": true

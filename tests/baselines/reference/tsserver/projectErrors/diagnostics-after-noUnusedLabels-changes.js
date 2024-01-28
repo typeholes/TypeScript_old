@@ -354,7 +354,8 @@ Info seq  [hh:mm:ss:mss] response:
           "text": "Unused label.",
           "code": 7028,
           "category": "error",
-          "reportsUnnecessary": true
+          "reportsUnnecessary": true,
+          "arguments": []
         }
       ],
       "responseRequired": true

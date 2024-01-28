@@ -77,6 +77,7 @@ CleanBuild:
             "messageText": "Duplicate identifier 'arguments'. Compiler uses 'arguments' to initialize rest parameters.",
             "category": 1,
             "code": 2396,
+            "arguments": [],
             "skippedOn": "noEmit"
           }
         ]
@@ -168,6 +169,7 @@ IncrementalBuild:
             "messageText": "Duplicate identifier 'arguments'. Compiler uses 'arguments' to initialize rest parameters.",
             "category": 1,
             "code": 2396,
+            "arguments": [],
             "skippedOn": "noEmit"
           }
         ]
@@ -256,6 +258,7 @@ CleanBuild:
             "messageText": "Duplicate identifier 'arguments'. Compiler uses 'arguments' to initialize rest parameters.",
             "category": 1,
             "code": 2396,
+            "arguments": [],
             "skippedOn": "noEmit"
           }
         ]
@@ -347,6 +350,7 @@ IncrementalBuild:
             "messageText": "Duplicate identifier 'arguments'. Compiler uses 'arguments' to initialize rest parameters.",
             "category": 1,
             "code": 2396,
+            "arguments": [],
             "skippedOn": "noEmit"
           }
         ]
@@ -438,9 +442,13 @@ CleanBuild:
                 "length": 5,
                 "messageText": "'prop1' is declared here.",
                 "category": 3,
-                "code": 2728
+                "code": 2728,
+                "arguments": [
+                  "prop1"
+                ]
               }
-            ]
+            ],
+            "arguments": []
           }
         ]
       ],
@@ -462,9 +470,13 @@ CleanBuild:
                 "length": 5,
                 "messageText": "'prop1' is declared here.",
                 "category": 3,
-                "code": 2728
+                "code": 2728,
+                "arguments": [
+                  "prop1"
+                ]
               }
-            ]
+            ],
+            "arguments": []
           }
         ]
       ],
@@ -479,6 +491,7 @@ CleanBuild:
             "messageText": "Duplicate identifier 'arguments'. Compiler uses 'arguments' to initialize rest parameters.",
             "category": 1,
             "code": 2396,
+            "arguments": [],
             "skippedOn": "noEmit"
           }
         ]
@@ -573,9 +586,13 @@ IncrementalBuild:
                 "length": 5,
                 "messageText": "'prop1' is declared here.",
                 "category": 3,
-                "code": 2728
+                "code": 2728,
+                "arguments": [
+                  "prop1"
+                ]
               }
-            ]
+            ],
+            "arguments": []
           }
         ]
       ],
@@ -597,9 +614,13 @@ IncrementalBuild:
                 "length": 5,
                 "messageText": "'prop1' is declared here.",
                 "category": 3,
-                "code": 2728
+                "code": 2728,
+                "arguments": [
+                  "prop1"
+                ]
               }
-            ]
+            ],
+            "arguments": []
           }
         ]
       ],
@@ -614,6 +635,7 @@ IncrementalBuild:
             "messageText": "Duplicate identifier 'arguments'. Compiler uses 'arguments' to initialize rest parameters.",
             "category": 1,
             "code": 2396,
+            "arguments": [],
             "skippedOn": "noEmit"
           }
         ]
@@ -716,6 +738,7 @@ CleanBuild:
             "messageText": "Duplicate identifier 'arguments'. Compiler uses 'arguments' to initialize rest parameters.",
             "category": 1,
             "code": 2396,
+            "arguments": [],
             "skippedOn": "noEmit"
           }
         ]
@@ -807,6 +830,7 @@ IncrementalBuild:
             "messageText": "Duplicate identifier 'arguments'. Compiler uses 'arguments' to initialize rest parameters.",
             "category": 1,
             "code": 2396,
+            "arguments": [],
             "skippedOn": "noEmit"
           }
         ]
@@ -895,6 +919,7 @@ CleanBuild:
             "messageText": "Duplicate identifier 'arguments'. Compiler uses 'arguments' to initialize rest parameters.",
             "category": 1,
             "code": 2396,
+            "arguments": [],
             "skippedOn": "noEmit"
           }
         ]
@@ -986,6 +1011,7 @@ IncrementalBuild:
             "messageText": "Duplicate identifier 'arguments'. Compiler uses 'arguments' to initialize rest parameters.",
             "category": 1,
             "code": 2396,
+            "arguments": [],
             "skippedOn": "noEmit"
           }
         ]
@@ -1077,9 +1103,13 @@ CleanBuild:
                 "length": 5,
                 "messageText": "'prop1' is declared here.",
                 "category": 3,
-                "code": 2728
+                "code": 2728,
+                "arguments": [
+                  "prop1"
+                ]
               }
-            ]
+            ],
+            "arguments": []
           }
         ]
       ],
@@ -1101,9 +1131,13 @@ CleanBuild:
                 "length": 5,
                 "messageText": "'prop1' is declared here.",
                 "category": 3,
-                "code": 2728
+                "code": 2728,
+                "arguments": [
+                  "prop1"
+                ]
               }
-            ]
+            ],
+            "arguments": []
           }
         ]
       ],
@@ -1118,6 +1152,7 @@ CleanBuild:
             "messageText": "Duplicate identifier 'arguments'. Compiler uses 'arguments' to initialize rest parameters.",
             "category": 1,
             "code": 2396,
+            "arguments": [],
             "skippedOn": "noEmit"
           }
         ]
@@ -1212,9 +1247,13 @@ IncrementalBuild:
                 "length": 5,
                 "messageText": "'prop1' is declared here.",
                 "category": 3,
-                "code": 2728
+                "code": 2728,
+                "arguments": [
+                  "prop1"
+                ]
               }
-            ]
+            ],
+            "arguments": []
           }
         ]
       ],
@@ -1236,9 +1275,13 @@ IncrementalBuild:
                 "length": 5,
                 "messageText": "'prop1' is declared here.",
                 "category": 3,
-                "code": 2728
+                "code": 2728,
+                "arguments": [
+                  "prop1"
+                ]
               }
-            ]
+            ],
+            "arguments": []
           }
         ]
       ],
@@ -1253,6 +1296,7 @@ IncrementalBuild:
             "messageText": "Duplicate identifier 'arguments'. Compiler uses 'arguments' to initialize rest parameters.",
             "category": 1,
             "code": 2396,
+            "arguments": [],
             "skippedOn": "noEmit"
           }
         ]
@@ -1344,9 +1388,13 @@ CleanBuild:
                 "length": 5,
                 "messageText": "'prop1' is declared here.",
                 "category": 3,
-                "code": 2728
+                "code": 2728,
+                "arguments": [
+                  "prop1"
+                ]
               }
-            ]
+            ],
+            "arguments": []
           }
         ]
       ],
@@ -1368,9 +1416,13 @@ CleanBuild:
                 "length": 5,
                 "messageText": "'prop1' is declared here.",
                 "category": 3,
-                "code": 2728
+                "code": 2728,
+                "arguments": [
+                  "prop1"
+                ]
               }
-            ]
+            ],
+            "arguments": []
           }
         ]
       ],
@@ -1385,6 +1437,7 @@ CleanBuild:
             "messageText": "Duplicate identifier 'arguments'. Compiler uses 'arguments' to initialize rest parameters.",
             "category": 1,
             "code": 2396,
+            "arguments": [],
             "skippedOn": "noEmit"
           }
         ]
@@ -1479,9 +1532,13 @@ IncrementalBuild:
                 "length": 5,
                 "messageText": "'prop1' is declared here.",
                 "category": 3,
-                "code": 2728
+                "code": 2728,
+                "arguments": [
+                  "prop1"
+                ]
               }
-            ]
+            ],
+            "arguments": []
           }
         ]
       ],
@@ -1503,9 +1560,13 @@ IncrementalBuild:
                 "length": 5,
                 "messageText": "'prop1' is declared here.",
                 "category": 3,
-                "code": 2728
+                "code": 2728,
+                "arguments": [
+                  "prop1"
+                ]
               }
-            ]
+            ],
+            "arguments": []
           }
         ]
       ],
@@ -1520,6 +1581,7 @@ IncrementalBuild:
             "messageText": "Duplicate identifier 'arguments'. Compiler uses 'arguments' to initialize rest parameters.",
             "category": 1,
             "code": 2396,
+            "arguments": [],
             "skippedOn": "noEmit"
           }
         ]
@@ -1608,6 +1670,7 @@ CleanBuild:
             "messageText": "Duplicate identifier 'arguments'. Compiler uses 'arguments' to initialize rest parameters.",
             "category": 1,
             "code": 2396,
+            "arguments": [],
             "skippedOn": "noEmit"
           }
         ]
@@ -1699,6 +1762,7 @@ IncrementalBuild:
             "messageText": "Duplicate identifier 'arguments'. Compiler uses 'arguments' to initialize rest parameters.",
             "category": 1,
             "code": 2396,
+            "arguments": [],
             "skippedOn": "noEmit"
           }
         ]
@@ -1801,6 +1865,7 @@ CleanBuild:
             "messageText": "Duplicate identifier 'arguments'. Compiler uses 'arguments' to initialize rest parameters.",
             "category": 1,
             "code": 2396,
+            "arguments": [],
             "skippedOn": "noEmit"
           }
         ]
@@ -1892,6 +1957,7 @@ IncrementalBuild:
             "messageText": "Duplicate identifier 'arguments'. Compiler uses 'arguments' to initialize rest parameters.",
             "category": 1,
             "code": 2396,
+            "arguments": [],
             "skippedOn": "noEmit"
           }
         ]
@@ -1980,6 +2046,7 @@ CleanBuild:
             "messageText": "Duplicate identifier 'arguments'. Compiler uses 'arguments' to initialize rest parameters.",
             "category": 1,
             "code": 2396,
+            "arguments": [],
             "skippedOn": "noEmit"
           }
         ]
@@ -2071,6 +2138,7 @@ IncrementalBuild:
             "messageText": "Duplicate identifier 'arguments'. Compiler uses 'arguments' to initialize rest parameters.",
             "category": 1,
             "code": 2396,
+            "arguments": [],
             "skippedOn": "noEmit"
           }
         ]

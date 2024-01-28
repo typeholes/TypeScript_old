@@ -301,7 +301,11 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Module '\"../decls/fns\"' has no exported member 'fnErr'.",
             "code": 2305,
-            "category": "error"
+            "category": "error",
+            "arguments": [
+              "\"../decls/fns\"",
+              "fnErr"
+            ]
           }
         ]
       }

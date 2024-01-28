@@ -2150,6 +2150,7 @@ export function createFileDiagnosticFromMessageChain(file: SourceFile, start: nu
         category: messageChain.category,
         messageText: messageChain.next ? messageChain : messageChain.messageText,
         relatedInformation,
+        arguments: [],
     };
 }
 
@@ -2163,6 +2164,7 @@ export function createDiagnosticForFileFromMessageChain(sourceFile: SourceFile, 
         category: messageChain.category,
         messageText: messageChain.next ? messageChain : messageChain.messageText,
         relatedInformation,
+        arguments: [],
     };
 }
 
@@ -2173,11 +2175,12 @@ export function createDiagnosticMessageChainFromDiagnostic(diagnostic: Diagnosti
         category: diagnostic.category,
         messageText: diagnostic.messageText,
         next: (diagnostic as DiagnosticMessageChain).next,
+        arguments: diagnostic.arguments,
     } : diagnostic.messageText;
 }
 
 /** @internal */
-export function createDiagnosticForRange(sourceFile: SourceFile, range: TextRange, message: DiagnosticMessage): DiagnosticWithLocation {
+export function createDiagnosticForRange(sourceFile: SourceFile, range: TextRange, message: DiagnosticMessage, args: DiagnosticArguments): DiagnosticWithLocation {
     return {
         file: sourceFile,
         start: range.pos,
@@ -2185,6 +2188,7 @@ export function createDiagnosticForRange(sourceFile: SourceFile, range: TextRang
         code: message.code,
         category: message.category,
         messageText: message.message,
+        arguments: args,
     };
 }
 
@@ -8326,6 +8330,7 @@ export function createDetachedDiagnostic(fileName: string, sourceText: string, s
         code: message.code,
         reportsUnnecessary: message.reportsUnnecessary,
         fileName,
+        arguments: args,
     };
 }
 
@@ -8350,6 +8355,7 @@ function attachFileToDiagnostic(diagnostic: DiagnosticWithDetachedLocation, file
         category: diagnostic.category,
         code: diagnostic.code,
         reportsUnnecessary: diagnostic.reportsUnnecessary,
+        arguments: diagnostic.arguments,
     };
     if (diagnostic.relatedInformation) {
         diagnosticWithLocation.relatedInformation = [];
@@ -8396,6 +8402,7 @@ export function createFileDiagnostic(file: SourceFile, start: number, length: nu
         code: message.code,
         reportsUnnecessary: message.reportsUnnecessary,
         reportsDeprecated: message.reportsDeprecated,
+        arguments: args,
     };
 }
 
@@ -8428,6 +8435,7 @@ export function createCompilerDiagnostic(message: DiagnosticMessage, ...args: Di
         code: message.code,
         reportsUnnecessary: message.reportsUnnecessary,
         reportsDeprecated: message.reportsDeprecated,
+        arguments: args,
     };
 }
 
@@ -8442,6 +8450,7 @@ export function createCompilerDiagnosticFromMessageChain(chain: DiagnosticMessag
         category: chain.category,
         messageText: chain.next ? chain : chain.messageText,
         relatedInformation,
+        arguments: [],
     };
 }
 
@@ -8458,6 +8467,7 @@ export function chainDiagnosticMessages(details: DiagnosticMessageChain | Diagno
         code: message.code,
 
         next: details === undefined || Array.isArray(details) ? details : [details],
+        arguments: args,
     };
 }
 
