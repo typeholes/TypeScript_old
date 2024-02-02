@@ -287,8 +287,10 @@ Info seq  [hh:mm:ss:mss] 'package.json' does not have a 'typesVersions' field.
 Info seq  [hh:mm:ss:mss] 'package.json' does not have a 'typings' field.
 Info seq  [hh:mm:ss:mss] 'package.json' does not have a 'types' field.
 Info seq  [hh:mm:ss:mss] 'package.json' has 'main' field 'index.js' that references '/home/src/projects/project/node_modules/bar/index.js'.
-Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar/index.js' exists - use it as a name resolution result.
-Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar/index.js' has an unsupported extension, so skipping it.
+Info seq  [hh:mm:ss:mss] File name '/home/src/projects/project/node_modules/bar/index.js' has a '.js' extension - stripping it.
+Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar/index.ts' does not exist.
+Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar/index.tsx' does not exist.
+Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar/index.d.ts' does not exist.
 Info seq  [hh:mm:ss:mss] Loading module as file / folder, candidate module location '/home/src/projects/project/node_modules/bar/index.js', target file types: TypeScript, Declaration.
 Info seq  [hh:mm:ss:mss] File name '/home/src/projects/project/node_modules/bar/index.js' has a '.js' extension - stripping it.
 Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar/index.ts' does not exist.
@@ -833,8 +835,10 @@ Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar/packa
 Info seq  [hh:mm:ss:mss] 'package.json' does not have a 'typings' field.
 Info seq  [hh:mm:ss:mss] 'package.json' does not have a 'types' field.
 Info seq  [hh:mm:ss:mss] 'package.json' has 'main' field 'index.js' that references '/home/src/projects/project/node_modules/bar/index.js'.
-Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar/index.js' exists - use it as a name resolution result.
-Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar/index.js' has an unsupported extension, so skipping it.
+Info seq  [hh:mm:ss:mss] File name '/home/src/projects/project/node_modules/bar/index.js' has a '.js' extension - stripping it.
+Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar/index.ts' does not exist.
+Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar/index.tsx' does not exist.
+Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar/index.d.ts' does not exist.
 Info seq  [hh:mm:ss:mss] Loading module as file / folder, candidate module location '/home/src/projects/project/node_modules/bar/index.js', target file types: TypeScript, Declaration.
 Info seq  [hh:mm:ss:mss] File name '/home/src/projects/project/node_modules/bar/index.js' has a '.js' extension - stripping it.
 Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar/index.ts' does not exist.
@@ -1522,8 +1526,10 @@ Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar/packa
 Info seq  [hh:mm:ss:mss] 'package.json' does not have a 'typings' field.
 Info seq  [hh:mm:ss:mss] 'package.json' does not have a 'types' field.
 Info seq  [hh:mm:ss:mss] 'package.json' has 'main' field 'index.js' that references '/home/src/projects/project/node_modules/bar/index.js'.
-Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar/index.js' exists - use it as a name resolution result.
-Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar/index.js' has an unsupported extension, so skipping it.
+Info seq  [hh:mm:ss:mss] File name '/home/src/projects/project/node_modules/bar/index.js' has a '.js' extension - stripping it.
+Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar/index.ts' does not exist.
+Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar/index.tsx' does not exist.
+Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar/index.d.ts' does not exist.
 Info seq  [hh:mm:ss:mss] Loading module as file / folder, candidate module location '/home/src/projects/project/node_modules/bar/index.js', target file types: TypeScript, Declaration.
 Info seq  [hh:mm:ss:mss] File name '/home/src/projects/project/node_modules/bar/index.js' has a '.js' extension - stripping it.
 Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar/index.ts' does not exist.
@@ -2892,8 +2898,10 @@ Info seq  [hh:mm:ss:mss] 'package.json' does not have a 'typesVersions' field.
 Info seq  [hh:mm:ss:mss] 'package.json' does not have a 'typings' field.
 Info seq  [hh:mm:ss:mss] 'package.json' does not have a 'types' field.
 Info seq  [hh:mm:ss:mss] 'package.json' has 'main' field 'index.js' that references '/home/src/projects/project/node_modules/bar2/index.js'.
-Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar2/index.js' exists - use it as a name resolution result.
-Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar2/index.js' has an unsupported extension, so skipping it.
+Info seq  [hh:mm:ss:mss] File name '/home/src/projects/project/node_modules/bar2/index.js' has a '.js' extension - stripping it.
+Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar2/index.ts' does not exist.
+Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar2/index.tsx' does not exist.
+Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar2/index.d.ts' does not exist.
 Info seq  [hh:mm:ss:mss] Loading module as file / folder, candidate module location '/home/src/projects/project/node_modules/bar2/index.js', target file types: TypeScript, Declaration.
 Info seq  [hh:mm:ss:mss] File name '/home/src/projects/project/node_modules/bar2/index.js' has a '.js' extension - stripping it.
 Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar2/index.ts' does not exist.
@@ -3687,8 +3695,10 @@ Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar2/pack
 Info seq  [hh:mm:ss:mss] 'package.json' does not have a 'typings' field.
 Info seq  [hh:mm:ss:mss] 'package.json' does not have a 'types' field.
 Info seq  [hh:mm:ss:mss] 'package.json' has 'main' field 'index.js' that references '/home/src/projects/project/node_modules/bar2/index.js'.
-Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar2/index.js' exists - use it as a name resolution result.
-Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar2/index.js' has an unsupported extension, so skipping it.
+Info seq  [hh:mm:ss:mss] File name '/home/src/projects/project/node_modules/bar2/index.js' has a '.js' extension - stripping it.
+Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar2/index.ts' does not exist.
+Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar2/index.tsx' does not exist.
+Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar2/index.d.ts' does not exist.
 Info seq  [hh:mm:ss:mss] Loading module as file / folder, candidate module location '/home/src/projects/project/node_modules/bar2/index.js', target file types: TypeScript, Declaration.
 Info seq  [hh:mm:ss:mss] File name '/home/src/projects/project/node_modules/bar2/index.js' has a '.js' extension - stripping it.
 Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar2/index.ts' does not exist.
@@ -4397,8 +4407,10 @@ Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar2/pack
 Info seq  [hh:mm:ss:mss] 'package.json' does not have a 'typings' field.
 Info seq  [hh:mm:ss:mss] 'package.json' does not have a 'types' field.
 Info seq  [hh:mm:ss:mss] 'package.json' has 'main' field 'index.js' that references '/home/src/projects/project/node_modules/bar2/index.js'.
-Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar2/index.js' exists - use it as a name resolution result.
-Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar2/index.js' has an unsupported extension, so skipping it.
+Info seq  [hh:mm:ss:mss] File name '/home/src/projects/project/node_modules/bar2/index.js' has a '.js' extension - stripping it.
+Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar2/index.ts' does not exist.
+Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar2/index.tsx' does not exist.
+Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar2/index.d.ts' does not exist.
 Info seq  [hh:mm:ss:mss] Loading module as file / folder, candidate module location '/home/src/projects/project/node_modules/bar2/index.js', target file types: TypeScript, Declaration.
 Info seq  [hh:mm:ss:mss] File name '/home/src/projects/project/node_modules/bar2/index.js' has a '.js' extension - stripping it.
 Info seq  [hh:mm:ss:mss] File '/home/src/projects/project/node_modules/bar2/index.ts' does not exist.
