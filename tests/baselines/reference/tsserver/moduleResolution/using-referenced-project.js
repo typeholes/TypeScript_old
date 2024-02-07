@@ -596,6 +596,7 @@ Projects::
 /home/src/projects/project/packages/package-b/tsconfig.json (Configured) *changed*
     projectStateVersion: 2 *changed*
     projectProgramVersion: 1
+    dirty: true *changed*
 
 ScriptInfos::
 /a/lib/lib.es2021.d.ts
@@ -774,6 +775,7 @@ Projects::
 /home/src/projects/project/packages/package-b/tsconfig.json (Configured) *changed*
     projectStateVersion: 2
     projectProgramVersion: 2 *changed*
+    dirty: false *changed*
 
 ScriptInfos::
 /a/lib/lib.es2021.d.ts
@@ -891,6 +893,7 @@ Projects::
 /home/src/projects/project/packages/package-b/tsconfig.json (Configured) *changed*
     projectStateVersion: 3 *changed*
     projectProgramVersion: 2
+    dirty: true *changed*
 
 ScriptInfos::
 /a/lib/lib.es2021.d.ts
@@ -1071,6 +1074,7 @@ Projects::
 /home/src/projects/project/packages/package-b/tsconfig.json (Configured) *changed*
     projectStateVersion: 3
     projectProgramVersion: 3 *changed*
+    dirty: false *changed*
 
 ScriptInfos::
 /a/lib/lib.es2021.d.ts

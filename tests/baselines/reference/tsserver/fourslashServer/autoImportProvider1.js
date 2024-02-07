@@ -508,6 +508,7 @@ Projects::
 /tsconfig.json (Configured) *changed*
     projectStateVersion: 2 *changed*
     projectProgramVersion: 1
+    dirty: true *changed*
     autoImportProviderHost: /dev/null/autoImportProviderProject1*
 
 ScriptInfos::
