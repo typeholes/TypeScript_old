@@ -8435,7 +8435,7 @@ export function createCompilerDiagnostic(message: DiagnosticMessage, ...args: Di
         code: message.code,
         reportsUnnecessary: message.reportsUnnecessary,
         reportsDeprecated: message.reportsDeprecated,
-        //arguments: args, //LSL restore after baseline test comparison
+        arguments: args,
     };
 }
 
