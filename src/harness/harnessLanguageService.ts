@@ -544,7 +544,7 @@ class SessionServerHost implements ts.server.ServerHost {
                                     length: 3,
                                     messageText: `Plugin diagnostic`,
                                     start: 0,
-                                    // arguments: [], //LSL restore when test baseline comparsion is done
+                                    arguments: [],
                                 });
                                 return prev;
                             };
@@ -572,7 +572,7 @@ class SessionServerHost implements ts.server.ServerHost {
                                     length: 3,
                                     messageText: customMessage,
                                     start: 0,
-                                    // arguments: [], //LSL restore when test baseline comparsion is done
+                                    arguments: [],
                                 });
                                 return prev;
                             };

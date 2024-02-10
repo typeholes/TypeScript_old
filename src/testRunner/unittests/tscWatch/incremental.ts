@@ -223,7 +223,7 @@ describe("unittests:: tsc-watch:: emit file --incremental", () => {
                     reportsDeprecated: undefined,
                     source: undefined,
                     skippedOn: undefined,
-                    // arguments: [],  //LSL restore after test baseline comparison
+                    arguments: [],
                 }]);
             });
         });

@@ -88,7 +88,7 @@ describe("unittests:: tsserver:: externalProjects", () => {
                                 length: 3,
                                 messageText: `Plugin diagnostic`,
                                 start: 0,
-                                // arguments: [], // lsl restore after test baseline comparison
+                                arguments: [],
                             });
                             return prev;
                         };
