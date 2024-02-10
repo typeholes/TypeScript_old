@@ -8467,7 +8467,7 @@ export function chainDiagnosticMessages(details: DiagnosticMessageChain | Diagno
         code: message.code,
 
         next: details === undefined || Array.isArray(details) ? details : [details],
-        // arguments: args,  //LSL restore after baseline test comparison
+        arguments: args,
     };
 }
 
