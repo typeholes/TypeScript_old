@@ -92,7 +92,8 @@ Info seq  [hh:mm:ss:mss] response:
           },
           "text": "File '/a/b/commonFile2.ts' not found.",
           "code": 6053,
-          "category": "error"
+          "category": "error",
+          "arguments": []
         },
         {
           "start": {

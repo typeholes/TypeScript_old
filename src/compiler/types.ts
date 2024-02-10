@@ -7007,7 +7007,7 @@ export interface DiagnosticMessageChain {
     messageText: string;
     category: DiagnosticCategory;
     code: number;
-    arguments?: DiagnosticArguments; //LSL remove optional after test baseline comparison
+    arguments: DiagnosticArguments;
     next?: DiagnosticMessageChain[];
     /** @internal */
     repopulateInfo?: () => RepopulateDiagnosticChainInfo;
@@ -7043,7 +7043,7 @@ export interface DiagnosticRelatedInformation {
     start: number | undefined;
     length: number | undefined;
     messageText: string | DiagnosticMessageChain;
-    arguments?: DiagnosticArguments; // LSL remove optional after test baseline comparison
+    arguments: DiagnosticArguments;
 }
 
 export interface DiagnosticWithLocation extends Diagnostic {

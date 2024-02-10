@@ -612,7 +612,8 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Type 'number' is not assignable to type 'string'.",
             "code": 2322,
-            "category": "error"
+            "category": "error",
+            "arguments": []
           }
         ]
       }

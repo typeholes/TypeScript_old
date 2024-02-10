@@ -142,7 +142,8 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "File '../../../../../../typings/@epic/Core.d.ts' not found.",
             "code": 6053,
-            "category": "error"
+            "category": "error",
+            "arguments": []
           },
           {
             "start": {
@@ -155,7 +156,8 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "File 'src/somefile.d.ts' not found.",
             "code": 6053,
-            "category": "error"
+            "category": "error",
+            "arguments": []
           }
         ]
       }

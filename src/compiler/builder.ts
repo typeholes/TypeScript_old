@@ -105,7 +105,7 @@ export interface ReusableDiagnosticRelatedInformation {
     start: number | undefined;
     length: number | undefined;
     messageText: string | ReusableDiagnosticMessageChain;
-    arguments?: DiagnosticArguments;  // LSL remove optional after test baseline comparison
+    arguments: DiagnosticArguments;
 }
 
 /** @internal */

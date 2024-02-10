@@ -504,7 +504,8 @@ Info seq  [hh:mm:ss:mss] response:
           },
           "text": "Type 'number' is not assignable to type 'string'.",
           "code": 2322,
-          "category": "error"
+          "category": "error",
+          "arguments": []
         }
       ],
       "responseRequired": true
@@ -705,7 +706,8 @@ Info seq  [hh:mm:ss:mss] response:
           },
           "text": "Type 'number' is not assignable to type 'string'.",
           "code": 2322,
-          "category": "error"
+          "category": "error",
+          "arguments": []
         }
       ],
       "responseRequired": true

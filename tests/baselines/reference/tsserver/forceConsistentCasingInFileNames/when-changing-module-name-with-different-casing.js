@@ -372,7 +372,8 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "File name '/user/username/projects/myproject/logger.ts' differs from already included file name '/user/username/projects/myproject/Logger.ts' only in casing.\n  The file is in the program because:\n    Matched by default include pattern '**/*'\n    Imported via \"./logger\" from file '/user/username/projects/myproject/another.ts'",
             "code": 1149,
-            "category": "error"
+            "category": "error",
+            "arguments": []
           }
         ]
       }

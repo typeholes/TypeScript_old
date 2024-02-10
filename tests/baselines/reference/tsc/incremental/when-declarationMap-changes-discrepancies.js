@@ -48,7 +48,8 @@ CleanBuild:
             "length": 1,
             "code": 2322,
             "category": 1,
-            "messageText": "Type '10' is not assignable to type '20'."
+            "messageText": "Type '10' is not assignable to type '20'.",
+            "arguments": []
           }
         ]
       ],
@@ -106,7 +107,8 @@ IncrementalBuild:
             "length": 1,
             "code": 2322,
             "category": 1,
-            "messageText": "Type '10' is not assignable to type '20'."
+            "messageText": "Type '10' is not assignable to type '20'.",
+            "arguments": []
           }
         ]
       ],

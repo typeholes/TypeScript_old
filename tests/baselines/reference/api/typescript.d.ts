@@ -7450,7 +7450,7 @@ declare namespace ts {
         messageText: string;
         category: DiagnosticCategory;
         code: number;
-        arguments?: DiagnosticArguments;
+        arguments: DiagnosticArguments;
         next?: DiagnosticMessageChain[];
     }
     interface Diagnostic extends DiagnosticRelatedInformation {
@@ -7474,7 +7474,7 @@ declare namespace ts {
         start: number | undefined;
         length: number | undefined;
         messageText: string | DiagnosticMessageChain;
-        arguments?: DiagnosticArguments;
+        arguments: DiagnosticArguments;
     }
     interface DiagnosticWithLocation extends Diagnostic {
         file: SourceFile;
@@ -9288,7 +9288,7 @@ declare namespace ts {
      */
     function getJSDocCommentsAndTags(hostNode: Node): readonly (JSDoc | JSDocTag)[];
     function diagnosticArgumentToText(arg: DiagnosticArgument): string | number;
-    function getDiagnosticArgValue(idx: number): Node | Symbol | TypePredicate | Type | Signature;
+    function getDiagnosticArgValue(idx: number): Node | Symbol | Type | Signature | TypePredicate;
     /** @deprecated */
     function createUnparsedSourceFile(text: string): UnparsedSource;
     /** @deprecated */

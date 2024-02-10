@@ -837,7 +837,7 @@ export function flattenDiagnosticMessageArguments(chain: DiagnosticMessageChain 
 
     if (!chain.next) {
         // return [...args, ...chain.arguments]; //LSL restore afet test baseline comparison
-        return chain.arguments ?  [...args, ...chain.arguments]: args;
+        return chain.arguments ?  [...args, /*...chain.arguments*/]: args;
     }
     // return [...args, ...chain.arguments, ...chain.next.flatMap(x => flattenDiagnosticMessageArguments(x))]; //LSL restore afet test baseline comparison
      return [...args, /*...chain.arguments,*/ ...chain.next.flatMap(x => flattenDiagnosticMessageArguments(x))];

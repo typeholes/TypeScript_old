@@ -575,7 +575,8 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Could not find a declaration file for module 'foo'. '/home/src/projects/project/node_modules/foo/index.mjs' implicitly has an 'any' type.\n  There are types at '/home/src/projects/project/node_modules/foo/index.d.ts', but this result could not be resolved when respecting package.json \"exports\". The 'foo' library may need to update its package.json or typings.",
             "code": 7016,
-            "category": "error"
+            "category": "error",
+            "arguments": []
           },
           {
             "start": {
@@ -588,7 +589,8 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Could not find a declaration file for module 'bar'. '/home/src/projects/project/node_modules/bar/index.mjs' implicitly has an 'any' type.\n  There are types at '/home/src/projects/project/node_modules/@types/bar/index.d.ts', but this result could not be resolved when respecting package.json \"exports\". The '@types/bar' library may need to update its package.json or typings.",
             "code": 7016,
-            "category": "error"
+            "category": "error",
+            "arguments": []
           }
         ]
       }
@@ -916,7 +918,8 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Could not find a declaration file for module 'foo'. '/home/src/projects/project/node_modules/foo/index.mjs' implicitly has an 'any' type.\n  There are types at '/home/src/projects/project/node_modules/foo/index.d.ts', but this result could not be resolved when respecting package.json \"exports\". The 'foo' library may need to update its package.json or typings.",
             "code": 7016,
-            "category": "error"
+            "category": "error",
+            "arguments": []
           },
           {
             "start": {
@@ -929,7 +932,8 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Could not find a declaration file for module 'bar'. '/home/src/projects/project/node_modules/bar/index.mjs' implicitly has an 'any' type.\n  Try `npm i --save-dev @types/bar` if it exists or add a new declaration (.d.ts) file containing `declare module 'bar';`",
             "code": 7016,
-            "category": "error"
+            "category": "error",
+            "arguments": []
           }
         ]
       }
@@ -1238,7 +1242,8 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Could not find a declaration file for module 'foo'. '/home/src/projects/project/node_modules/foo/index.mjs' implicitly has an 'any' type.\n  Try `npm i --save-dev @types/foo` if it exists or add a new declaration (.d.ts) file containing `declare module 'foo';`",
             "code": 7016,
-            "category": "error"
+            "category": "error",
+            "arguments": []
           },
           {
             "start": {
@@ -1251,7 +1256,8 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Could not find a declaration file for module 'bar'. '/home/src/projects/project/node_modules/bar/index.mjs' implicitly has an 'any' type.\n  Try `npm i --save-dev @types/bar` if it exists or add a new declaration (.d.ts) file containing `declare module 'bar';`",
             "code": 7016,
-            "category": "error"
+            "category": "error",
+            "arguments": []
           }
         ]
       }
@@ -1568,7 +1574,8 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Could not find a declaration file for module 'foo'. '/home/src/projects/project/node_modules/foo/index.mjs' implicitly has an 'any' type.\n  Try `npm i --save-dev @types/foo` if it exists or add a new declaration (.d.ts) file containing `declare module 'foo';`",
             "code": 7016,
-            "category": "error"
+            "category": "error",
+            "arguments": []
           },
           {
             "start": {
@@ -1581,7 +1588,8 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Could not find a declaration file for module 'bar'. '/home/src/projects/project/node_modules/bar/index.mjs' implicitly has an 'any' type.\n  There are types at '/home/src/projects/project/node_modules/@types/bar/index.d.ts', but this result could not be resolved when respecting package.json \"exports\". The '@types/bar' library may need to update its package.json or typings.",
             "code": 7016,
-            "category": "error"
+            "category": "error",
+            "arguments": []
           }
         ]
       }
@@ -1879,7 +1887,8 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Could not find a declaration file for module 'foo'. '/home/src/projects/project/node_modules/foo/index.mjs' implicitly has an 'any' type.\n  There are types at '/home/src/projects/project/node_modules/foo/index.d.ts', but this result could not be resolved when respecting package.json \"exports\". The 'foo' library may need to update its package.json or typings.",
             "code": 7016,
-            "category": "error"
+            "category": "error",
+            "arguments": []
           },
           {
             "start": {
@@ -1892,7 +1901,8 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Could not find a declaration file for module 'bar'. '/home/src/projects/project/node_modules/bar/index.mjs' implicitly has an 'any' type.\n  There are types at '/home/src/projects/project/node_modules/@types/bar/index.d.ts', but this result could not be resolved when respecting package.json \"exports\". The '@types/bar' library may need to update its package.json or typings.",
             "code": 7016,
-            "category": "error"
+            "category": "error",
+            "arguments": []
           }
         ]
       }
@@ -2196,7 +2206,8 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Could not find a declaration file for module 'foo'. '/home/src/projects/project/node_modules/foo/index.mjs' implicitly has an 'any' type.\n  There are types at '/home/src/projects/project/node_modules/foo/index.d.ts', but this result could not be resolved when respecting package.json \"exports\". The 'foo' library may need to update its package.json or typings.",
             "code": 7016,
-            "category": "error"
+            "category": "error",
+            "arguments": []
           }
         ]
       }
@@ -2892,7 +2903,8 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Could not find a declaration file for module 'bar2'. '/home/src/projects/project/node_modules/bar2/index.mjs' implicitly has an 'any' type.\n  There are types at '/home/src/projects/project/node_modules/@types/bar2/index.d.ts', but this result could not be resolved when respecting package.json \"exports\". The '@types/bar2' library may need to update its package.json or typings.",
             "code": 7016,
-            "category": "error"
+            "category": "error",
+            "arguments": []
           }
         ]
       }
@@ -3212,7 +3224,8 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Could not find a declaration file for module 'foo2'. '/home/src/projects/project/node_modules/foo2/index.mjs' implicitly has an 'any' type.\n  There are types at '/home/src/projects/project/node_modules/foo2/index.d.ts', but this result could not be resolved when respecting package.json \"exports\". The 'foo2' library may need to update its package.json or typings.",
             "code": 7016,
-            "category": "error"
+            "category": "error",
+            "arguments": []
           },
           {
             "start": {
@@ -3225,7 +3238,8 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Could not find a declaration file for module 'bar2'. '/home/src/projects/project/node_modules/bar2/index.mjs' implicitly has an 'any' type.\n  There are types at '/home/src/projects/project/node_modules/@types/bar2/index.d.ts', but this result could not be resolved when respecting package.json \"exports\". The '@types/bar2' library may need to update its package.json or typings.",
             "code": 7016,
-            "category": "error"
+            "category": "error",
+            "arguments": []
           }
         ]
       }
@@ -3553,7 +3567,8 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Could not find a declaration file for module 'foo2'. '/home/src/projects/project/node_modules/foo2/index.mjs' implicitly has an 'any' type.\n  There are types at '/home/src/projects/project/node_modules/foo2/index.d.ts', but this result could not be resolved when respecting package.json \"exports\". The 'foo2' library may need to update its package.json or typings.",
             "code": 7016,
-            "category": "error"
+            "category": "error",
+            "arguments": []
           },
           {
             "start": {
@@ -3566,7 +3581,8 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Could not find a declaration file for module 'bar2'. '/home/src/projects/project/node_modules/bar2/index.mjs' implicitly has an 'any' type.\n  Try `npm i --save-dev @types/bar2` if it exists or add a new declaration (.d.ts) file containing `declare module 'bar2';`",
             "code": 7016,
-            "category": "error"
+            "category": "error",
+            "arguments": []
           }
         ]
       }
@@ -3875,7 +3891,8 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Could not find a declaration file for module 'foo2'. '/home/src/projects/project/node_modules/foo2/index.mjs' implicitly has an 'any' type.\n  Try `npm i --save-dev @types/foo2` if it exists or add a new declaration (.d.ts) file containing `declare module 'foo2';`",
             "code": 7016,
-            "category": "error"
+            "category": "error",
+            "arguments": []
           },
           {
             "start": {
@@ -3888,7 +3905,8 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Could not find a declaration file for module 'bar2'. '/home/src/projects/project/node_modules/bar2/index.mjs' implicitly has an 'any' type.\n  Try `npm i --save-dev @types/bar2` if it exists or add a new declaration (.d.ts) file containing `declare module 'bar2';`",
             "code": 7016,
-            "category": "error"
+            "category": "error",
+            "arguments": []
           }
         ]
       }
@@ -4205,7 +4223,8 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Could not find a declaration file for module 'foo2'. '/home/src/projects/project/node_modules/foo2/index.mjs' implicitly has an 'any' type.\n  Try `npm i --save-dev @types/foo2` if it exists or add a new declaration (.d.ts) file containing `declare module 'foo2';`",
             "code": 7016,
-            "category": "error"
+            "category": "error",
+            "arguments": []
           },
           {
             "start": {
@@ -4218,7 +4237,8 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Could not find a declaration file for module 'bar2'. '/home/src/projects/project/node_modules/bar2/index.mjs' implicitly has an 'any' type.\n  There are types at '/home/src/projects/project/node_modules/@types/bar2/index.d.ts', but this result could not be resolved when respecting package.json \"exports\". The '@types/bar2' library may need to update its package.json or typings.",
             "code": 7016,
-            "category": "error"
+            "category": "error",
+            "arguments": []
           }
         ]
       }
@@ -4516,7 +4536,8 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Could not find a declaration file for module 'foo2'. '/home/src/projects/project/node_modules/foo2/index.mjs' implicitly has an 'any' type.\n  There are types at '/home/src/projects/project/node_modules/foo2/index.d.ts', but this result could not be resolved when respecting package.json \"exports\". The 'foo2' library may need to update its package.json or typings.",
             "code": 7016,
-            "category": "error"
+            "category": "error",
+            "arguments": []
           },
           {
             "start": {
@@ -4529,7 +4550,8 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Could not find a declaration file for module 'bar2'. '/home/src/projects/project/node_modules/bar2/index.mjs' implicitly has an 'any' type.\n  There are types at '/home/src/projects/project/node_modules/@types/bar2/index.d.ts', but this result could not be resolved when respecting package.json \"exports\". The '@types/bar2' library may need to update its package.json or typings.",
             "code": 7016,
-            "category": "error"
+            "category": "error",
+            "arguments": []
           }
         ]
       }

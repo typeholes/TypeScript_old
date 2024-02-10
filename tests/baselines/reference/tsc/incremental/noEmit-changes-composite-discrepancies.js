@@ -447,7 +447,8 @@ CleanBuild:
                   "prop1"
                 ]
               }
-            ]
+            ],
+            "arguments": []
           }
         ]
       ],
@@ -474,7 +475,8 @@ CleanBuild:
                   "prop1"
                 ]
               }
-            ]
+            ],
+            "arguments": []
           }
         ]
       ],
@@ -589,7 +591,8 @@ IncrementalBuild:
                   "prop1"
                 ]
               }
-            ]
+            ],
+            "arguments": []
           }
         ]
       ],
@@ -616,7 +619,8 @@ IncrementalBuild:
                   "prop1"
                 ]
               }
-            ]
+            ],
+            "arguments": []
           }
         ]
       ],
@@ -1104,7 +1108,8 @@ CleanBuild:
                   "prop1"
                 ]
               }
-            ]
+            ],
+            "arguments": []
           }
         ]
       ],
@@ -1131,7 +1136,8 @@ CleanBuild:
                   "prop1"
                 ]
               }
-            ]
+            ],
+            "arguments": []
           }
         ]
       ],
@@ -1246,7 +1252,8 @@ IncrementalBuild:
                   "prop1"
                 ]
               }
-            ]
+            ],
+            "arguments": []
           }
         ]
       ],
@@ -1273,7 +1280,8 @@ IncrementalBuild:
                   "prop1"
                 ]
               }
-            ]
+            ],
+            "arguments": []
           }
         ]
       ],
@@ -1385,7 +1393,8 @@ CleanBuild:
                   "prop1"
                 ]
               }
-            ]
+            ],
+            "arguments": []
           }
         ]
       ],
@@ -1412,7 +1421,8 @@ CleanBuild:
                   "prop1"
                 ]
               }
-            ]
+            ],
+            "arguments": []
           }
         ]
       ],
@@ -1527,7 +1537,8 @@ IncrementalBuild:
                   "prop1"
                 ]
               }
-            ]
+            ],
+            "arguments": []
           }
         ]
       ],
@@ -1554,7 +1565,8 @@ IncrementalBuild:
                   "prop1"
                 ]
               }
-            ]
+            ],
+            "arguments": []
           }
         ]
       ],

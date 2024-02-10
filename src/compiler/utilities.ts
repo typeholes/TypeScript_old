@@ -2150,7 +2150,7 @@ export function createFileDiagnosticFromMessageChain(file: SourceFile, start: nu
         category: messageChain.category,
         messageText: messageChain.next ? messageChain : messageChain.messageText,
         relatedInformation,
-        // arguments: [],  //LSL restore after baseline test comparison
+        arguments: [],
     };
 }
 
@@ -2164,7 +2164,7 @@ export function createDiagnosticForFileFromMessageChain(sourceFile: SourceFile, 
         category: messageChain.category,
         messageText: messageChain.next ? messageChain : messageChain.messageText,
         relatedInformation,
-        // arguments: [],  //LSL restore after baseline test comparison
+        arguments: [],
     };
 }
 
@@ -8450,7 +8450,7 @@ export function createCompilerDiagnosticFromMessageChain(chain: DiagnosticMessag
         category: chain.category,
         messageText: chain.next ? chain : chain.messageText,
         relatedInformation,
-        // arguments: [], //LSL restore after baseline test comparison
+        arguments: [],
     };
 }
 

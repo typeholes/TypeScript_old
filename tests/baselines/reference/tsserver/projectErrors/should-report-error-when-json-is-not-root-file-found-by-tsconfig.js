@@ -259,7 +259,8 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "File '/user/username/projects/myproject/src/blabla.json' is not listed within the file list of project '/user/username/projects/myproject/tsconfig.json'. Projects must list all files or use an 'include' pattern.",
             "code": 6307,
-            "category": "error"
+            "category": "error",
+            "arguments": []
           }
         ]
       }
