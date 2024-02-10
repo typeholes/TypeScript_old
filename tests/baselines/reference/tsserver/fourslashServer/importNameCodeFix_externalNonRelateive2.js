@@ -384,7 +384,8 @@ Info seq  [hh:mm:ss:mss] response:
           "endLocation": {
             "line": 1,
             "offset": 7
-          }
+          },
+          "arguments": []
         }
       ]
     }
@@ -639,7 +640,8 @@ Info seq  [hh:mm:ss:mss] response:
           "endLocation": {
             "line": 1,
             "offset": 6
-          }
+          },
+          "arguments": []
         }
       ]
     }
@@ -894,7 +896,8 @@ Info seq  [hh:mm:ss:mss] response:
           "endLocation": {
             "line": 1,
             "offset": 7
-          }
+          },
+          "arguments": []
         }
       ]
     }

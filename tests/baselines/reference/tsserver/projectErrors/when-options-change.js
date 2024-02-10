@@ -236,7 +236,8 @@ Info seq  [hh:mm:ss:mss] response:
           "endLocation": {
             "line": 4,
             "offset": 38
-          }
+          },
+          "arguments": []
         },
         {
           "message": "Option 'mapRoot' cannot be specified with option 'inlineSourceMap'.",
@@ -251,7 +252,8 @@ Info seq  [hh:mm:ss:mss] response:
           "endLocation": {
             "line": 5,
             "offset": 30
-          }
+          },
+          "arguments": []
         },
         {
           "message": "Option 'mapRoot' cannot be specified without specifying option 'sourceMap' or option 'declarationMap'.",
@@ -266,7 +268,8 @@ Info seq  [hh:mm:ss:mss] response:
           "endLocation": {
             "line": 5,
             "offset": 30
-          }
+          },
+          "arguments": []
         }
       ],
       "responseRequired": true
@@ -410,7 +413,8 @@ Info seq  [hh:mm:ss:mss] response:
           "endLocation": {
             "line": 3,
             "offset": 38
-          }
+          },
+          "arguments": []
         },
         {
           "message": "Option 'mapRoot' cannot be specified with option 'inlineSourceMap'.",
@@ -425,7 +429,8 @@ Info seq  [hh:mm:ss:mss] response:
           "endLocation": {
             "line": 4,
             "offset": 30
-          }
+          },
+          "arguments": []
         },
         {
           "message": "Option 'mapRoot' cannot be specified without specifying option 'sourceMap' or option 'declarationMap'.",
@@ -440,7 +445,8 @@ Info seq  [hh:mm:ss:mss] response:
           "endLocation": {
             "line": 4,
             "offset": 30
-          }
+          },
+          "arguments": []
         }
       ],
       "responseRequired": true

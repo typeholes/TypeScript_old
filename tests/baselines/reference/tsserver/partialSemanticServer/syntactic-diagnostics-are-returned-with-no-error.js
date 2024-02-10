@@ -100,6 +100,9 @@ Info seq  [hh:mm:ss:mss] response:
               "category": "error",
               "code": 1007
             }
+          ],
+          "arguments": [
+            ")"
           ]
         }
       ],
@@ -170,6 +173,9 @@ Info seq  [hh:mm:ss:mss] event:
                 "category": "error",
                 "code": 1007
               }
+            ],
+            "arguments": [
+              ")"
             ]
           }
         ]

@@ -204,7 +204,8 @@ Info seq  [hh:mm:ss:mss] response:
             {
               "message": "No inputs were found in config file '/user/someuser/project/tsconfig.json'. Specified 'include' paths were '[\"**/*\"]' and 'exclude' paths were '[]'.",
               "category": "error",
-              "code": 18003
+              "code": 18003,
+              "arguments": []
             }
           ]
         }

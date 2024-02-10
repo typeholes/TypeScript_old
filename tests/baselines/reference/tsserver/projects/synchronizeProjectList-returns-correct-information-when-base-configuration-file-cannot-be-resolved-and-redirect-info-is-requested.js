@@ -222,7 +222,8 @@ Info seq  [hh:mm:ss:mss] response:
             {
               "message": "Cannot read file '/user/username/projects/myproject/tsconfig_base.json'.",
               "category": "error",
-              "code": 5083
+              "code": 5083,
+              "arguments": []
             }
           ]
         }

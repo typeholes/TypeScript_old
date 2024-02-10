@@ -830,6 +830,19 @@ export function flattenDiagnosticMessageText(diag: string | DiagnosticMessageCha
     return result;
 }
 
+export function flattenDiagnosticMessageArguments(chain: DiagnosticMessageChain | string | undefined, args: DiagnosticArguments = []): DiagnosticArguments {
+    if (chain === undefined || typeof chain === "string") {
+        return args;
+    }
+
+    if (!chain.next) {
+        // return [...args, ...chain.arguments]; //LSL restore afet test baseline comparison
+        return chain.arguments ?  [...args, ...chain.arguments]: args;
+    }
+    // return [...args, ...chain.arguments, ...chain.next.flatMap(x => flattenDiagnosticMessageArguments(x))]; //LSL restore afet test baseline comparison
+     return [...args, /*...chain.arguments,*/ ...chain.next.flatMap(x => flattenDiagnosticMessageArguments(x))];
+}
+
 /**
  * Subset of a SourceFile used to calculate index-based resolutions
  * This includes some internal fields, so unless you have very good reason,
@@ -2935,7 +2948,7 @@ export function createProgram(rootNamesOrOptions: readonly string[] | CreateProg
         const { diagnostics, directives } = getDiagnosticsWithPrecedingDirectives(sourceFile, sourceFile.commentDirectives, flatDiagnostics);
 
         for (const errorExpectation of directives.getUnusedExpectations()) {
-            diagnostics.push(createDiagnosticForRange(sourceFile, errorExpectation.range, Diagnostics.Unused_ts_expect_error_directive));
+            diagnostics.push(createDiagnosticForRange(sourceFile, errorExpectation.range, Diagnostics.Unused_ts_expect_error_directive, []));
         }
 
         return diagnostics;

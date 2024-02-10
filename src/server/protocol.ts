@@ -1,6 +1,7 @@
 import type * as ts from "./_namespaces/ts";
 import type {
     CompilerOptionsValue,
+    DiagnosticArguments,
     EndOfLineState,
     FileExtensionInfo,
     HighlightSpanKind,
@@ -175,6 +176,7 @@ export const enum CommandTypes {
     ProvideInlayHints = "provideInlayHints",
     WatchChange = "watchChange",
 }
+
 
 /**
  * A TypeScript Server message
@@ -538,6 +540,7 @@ export interface DiagnosticWithLinePosition {
     reportsUnnecessary?: {};
     reportsDeprecated?: {};
     relatedInformation?: DiagnosticRelatedInformation[];
+    // arguments: DiagnosticArguments; //LSL restore when test baseline comparison is done
 }
 
 /**
@@ -2850,6 +2853,11 @@ export interface Diagnostic {
      * Any related spans the diagnostic may have, such as other locations relevant to an error, such as declarartion sites
      */
     relatedInformation?: DiagnosticRelatedInformation[];
+
+    /**
+     * structured diagnostic arguments
+     */
+    arguments?: DiagnosticArguments;
 
     /**
      * The error code of the diagnostic message.

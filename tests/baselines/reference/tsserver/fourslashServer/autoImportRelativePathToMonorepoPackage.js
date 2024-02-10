@@ -316,7 +316,8 @@ Info seq  [hh:mm:ss:mss] response:
           "endLocation": {
             "line": 2,
             "offset": 2
-          }
+          },
+          "arguments": []
         }
       ]
     }

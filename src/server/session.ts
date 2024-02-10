@@ -47,6 +47,7 @@ import {
     firstOrUndefined,
     flatMap,
     flatMapToMutable,
+    flattenDiagnosticMessageArguments,
     flattenDiagnosticMessageText,
     forEachNameInAccessChainWalkingLeft,
     FormatCodeSettings,
@@ -246,6 +247,7 @@ function formatDiag(fileName: NormalizedPath, project: Project, diag: Diagnostic
         reportsDeprecated: diag.reportsDeprecated,
         source: diag.source,
         relatedInformation: map(diag.relatedInformation, formatRelatedInformation),
+        arguments: diag.arguments,
     };
 }
 
@@ -1430,6 +1432,7 @@ export class Session<TMessage = string> implements EventSender {
             reportsUnnecessary: d.reportsUnnecessary,
             reportsDeprecated: d.reportsDeprecated,
             relatedInformation: map(d.relatedInformation, formatRelatedInformation),
+            arguments: flattenDiagnosticMessageArguments(d.messageText, d.arguments)
         }));
     }
 
@@ -1461,6 +1464,7 @@ export class Session<TMessage = string> implements EventSender {
                 reportsUnnecessary: d.reportsUnnecessary,
                 reportsDeprecated: d.reportsDeprecated,
                 relatedInformation: map(d.relatedInformation, formatRelatedInformation),
+                arguments: flattenDiagnosticMessageArguments(d.messageText, d.arguments)
             }) as protocol.DiagnosticWithLinePosition
         );
     }

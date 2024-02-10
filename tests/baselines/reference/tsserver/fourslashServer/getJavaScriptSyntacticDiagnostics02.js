@@ -121,7 +121,8 @@ Info seq  [hh:mm:ss:mss] response:
           "endLocation": {
             "line": 2,
             "offset": 15
-          }
+          },
+          "arguments": []
         },
         {
           "message": "Type annotations can only be used in TypeScript files.",
@@ -136,7 +137,8 @@ Info seq  [hh:mm:ss:mss] response:
           "endLocation": {
             "line": 3,
             "offset": 23
-          }
+          },
+          "arguments": []
         },
         {
           "message": "'var' is not allowed as a variable declaration name.",
@@ -151,7 +153,10 @@ Info seq  [hh:mm:ss:mss] response:
           "endLocation": {
             "line": 4,
             "offset": 8
-          }
+          },
+          "arguments": [
+            "var"
+          ]
         },
         {
           "message": "Variable declaration expected.",
@@ -166,7 +171,8 @@ Info seq  [hh:mm:ss:mss] response:
           "endLocation": {
             "line": 4,
             "offset": 10
-          }
+          },
+          "arguments": []
         },
         {
           "message": "Variable declaration expected.",
@@ -181,7 +187,8 @@ Info seq  [hh:mm:ss:mss] response:
           "endLocation": {
             "line": 4,
             "offset": 14
-          }
+          },
+          "arguments": []
         }
       ]
     }

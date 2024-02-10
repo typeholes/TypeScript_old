@@ -7007,6 +7007,7 @@ export interface DiagnosticMessageChain {
     messageText: string;
     category: DiagnosticCategory;
     code: number;
+    arguments?: DiagnosticArguments; //LSL remove optional after test baseline comparison
     next?: DiagnosticMessageChain[];
     /** @internal */
     repopulateInfo?: () => RepopulateDiagnosticChainInfo;
@@ -7022,16 +7023,14 @@ export interface Diagnostic extends DiagnosticRelatedInformation {
     /** @internal */ skippedOn?: keyof CompilerOptions;
 }
 
-/** @external */
 export interface StructuredDiagnosticArgument {
     cacheId: number | undefined;
     type: "Type" | "Symbol" | "Node" | "Signature" | "TypePredicate" | "string";
     text: string;
 }
-/** @external */
+
 export type DiagnosticArgument = StructuredDiagnosticArgument | string | number; // comment out | string | number to enforce structured arguments
 
-/** @internal */
 export type DiagnosticArguments = DiagnosticArgument[];
 
 /** @internal */
@@ -7044,6 +7043,7 @@ export interface DiagnosticRelatedInformation {
     start: number | undefined;
     length: number | undefined;
     messageText: string | DiagnosticMessageChain;
+    arguments?: DiagnosticArguments; // LSL remove optional after test baseline comparison
 }
 
 export interface DiagnosticWithLocation extends Diagnostic {
