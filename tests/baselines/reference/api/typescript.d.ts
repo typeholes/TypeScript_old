@@ -470,6 +470,7 @@ declare namespace ts {
                 reportsUnnecessary?: {};
                 reportsDeprecated?: {};
                 relatedInformation?: DiagnosticRelatedInformation[];
+                arguments: DiagnosticArguments;
             }
             /**
              * Response message for "projectInfo" request

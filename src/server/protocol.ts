@@ -540,7 +540,7 @@ export interface DiagnosticWithLinePosition {
     reportsUnnecessary?: {};
     reportsDeprecated?: {};
     relatedInformation?: DiagnosticRelatedInformation[];
-    // arguments: DiagnosticArguments; //LSL restore when test baseline comparison is done
+    arguments: DiagnosticArguments;
 }
 
 /**

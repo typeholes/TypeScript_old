@@ -520,7 +520,7 @@ export class SessionClient implements LanguageService {
                 code: entry.code,
                 reportsUnnecessary: entry.reportsUnnecessary,
                 reportsDeprecated: entry.reportsDeprecated,
-                // arguments: entry.arguments,  //LSL restore when test baseline comparison is done
+                arguments: entry.arguments, 
             };
         });
     }
