@@ -2175,12 +2175,12 @@ export function createDiagnosticMessageChainFromDiagnostic(diagnostic: Diagnosti
         category: diagnostic.category,
         messageText: diagnostic.messageText,
         next: (diagnostic as DiagnosticMessageChain).next,
-        // arguments: diagnostic.arguments,  //LSL restore after baseline test comparison
+        arguments: diagnostic.arguments,
     } : diagnostic.messageText;
 }
 
 /** @internal */
-export function createDiagnosticForRange(sourceFile: SourceFile, range: TextRange, message: DiagnosticMessage, _args: DiagnosticArguments): DiagnosticWithLocation {
+export function createDiagnosticForRange(sourceFile: SourceFile, range: TextRange, message: DiagnosticMessage, args: DiagnosticArguments): DiagnosticWithLocation {
     return {
         file: sourceFile,
         start: range.pos,
@@ -2188,7 +2188,7 @@ export function createDiagnosticForRange(sourceFile: SourceFile, range: TextRang
         code: message.code,
         category: message.category,
         messageText: message.message,
-        // arguments: args,  //LSL restore after baseline test comparison
+        arguments: args,
     };
 }
 
