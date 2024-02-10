@@ -35,7 +35,10 @@ CleanBuild:
             "length": 17,
             "messageText": "Cannot find module '../child/child2' or its corresponding type declarations.",
             "category": 1,
-            "code": 2307
+            "code": 2307,
+            "arguments": [
+              "../child/child2"
+            ]
           }
         ]
       ]
@@ -79,7 +82,10 @@ IncrementalBuild:
             "length": 17,
             "messageText": "Cannot find module '../child/child2' or its corresponding type declarations.",
             "category": 1,
-            "code": 2307
+            "code": 2307,
+            "arguments": [
+              "../child/child2"
+            ]
           }
         ]
       ]

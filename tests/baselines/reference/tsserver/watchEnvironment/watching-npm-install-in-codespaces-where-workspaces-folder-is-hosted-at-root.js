@@ -413,7 +413,10 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Cannot find module 'random-seed' or its corresponding type declarations.",
             "code": 2307,
-            "category": "error"
+            "category": "error",
+            "arguments": [
+              "random-seed"
+            ]
           }
         ]
       }

@@ -401,7 +401,11 @@ Info seq  [hh:mm:ss:mss] response:
           },
           "text": "This comparison appears to be unintentional because the types 'number' and 'string' have no overlap.",
           "code": 2367,
-          "category": "error"
+          "category": "error",
+          "arguments": [
+            "number",
+            "string"
+          ]
         }
       ],
       "responseRequired": true

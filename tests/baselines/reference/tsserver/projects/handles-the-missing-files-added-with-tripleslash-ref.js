@@ -105,7 +105,10 @@ Info seq  [hh:mm:ss:mss] response:
           },
           "text": "Cannot find name 'y'.",
           "code": 2304,
-          "category": "error"
+          "category": "error",
+          "arguments": [
+            "y"
+          ]
         }
       ],
       "responseRequired": true

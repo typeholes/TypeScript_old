@@ -746,7 +746,10 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Cannot find module 'package-aX' or its corresponding type declarations.",
             "code": 2307,
-            "category": "error"
+            "category": "error",
+            "arguments": [
+              "package-aX"
+            ]
           }
         ]
       }

@@ -413,7 +413,9 @@ Info seq  [hh:mm:ss:mss] response:
             "line": 1,
             "offset": 5
           },
-          "arguments": []
+          "arguments": [
+            "Pkg2"
+          ]
         }
       ]
     }
@@ -759,7 +761,9 @@ Info seq  [hh:mm:ss:mss] response:
             "line": 1,
             "offset": 5
           },
-          "arguments": []
+          "arguments": [
+            "Pkg2"
+          ]
         }
       ]
     }

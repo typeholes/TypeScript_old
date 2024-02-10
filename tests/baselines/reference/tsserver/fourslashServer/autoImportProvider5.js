@@ -238,7 +238,9 @@ Info seq  [hh:mm:ss:mss] response:
             "line": 1,
             "offset": 8
           },
-          "arguments": []
+          "arguments": [
+            "useForm"
+          ]
         }
       ]
     }

@@ -320,7 +320,9 @@ Info seq  [hh:mm:ss:mss] response:
             "line": 1,
             "offset": 17
           },
-          "arguments": []
+          "arguments": [
+            "PatternValidator"
+          ]
         }
       ]
     }

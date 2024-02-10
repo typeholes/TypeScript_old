@@ -380,7 +380,9 @@ Info seq  [hh:mm:ss:mss] response:
             "line": 2,
             "offset": 9
           },
-          "arguments": []
+          "arguments": [
+            "square"
+          ]
         }
       ]
     }

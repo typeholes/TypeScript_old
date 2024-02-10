@@ -999,7 +999,9 @@ Info seq  [hh:mm:ss:mss] response:
             "line": 1,
             "offset": 26
           },
-          "arguments": []
+          "arguments": [
+            "ServerRuntimeMetaFunction"
+          ]
         }
       ]
     }

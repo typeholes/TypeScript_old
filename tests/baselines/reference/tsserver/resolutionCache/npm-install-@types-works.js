@@ -151,7 +151,10 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Cannot find module 'pad' or its corresponding type declarations.",
             "code": 2307,
-            "category": "error"
+            "category": "error",
+            "arguments": [
+              "pad"
+            ]
           }
         ]
       }

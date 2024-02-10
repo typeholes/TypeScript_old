@@ -275,7 +275,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'myModule' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "myModule"
+            ]
           },
           {
             "start": {
@@ -289,7 +292,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'foo' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "foo"
+            ]
           }
         ]
       }
@@ -419,7 +425,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'myModule' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "myModule"
+            ]
           },
           {
             "start": {
@@ -433,7 +442,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'foo' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "foo"
+            ]
           }
         ]
       }

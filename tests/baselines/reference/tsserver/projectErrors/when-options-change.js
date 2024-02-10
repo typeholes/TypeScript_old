@@ -237,7 +237,11 @@ Info seq  [hh:mm:ss:mss] response:
             "line": 4,
             "offset": 38
           },
-          "arguments": []
+          "arguments": [
+            "mapRoot",
+            "inlineSourceMap",
+            null
+          ]
         },
         {
           "message": "Option 'mapRoot' cannot be specified with option 'inlineSourceMap'.",
@@ -253,7 +257,11 @@ Info seq  [hh:mm:ss:mss] response:
             "line": 5,
             "offset": 30
           },
-          "arguments": []
+          "arguments": [
+            "mapRoot",
+            "inlineSourceMap",
+            null
+          ]
         },
         {
           "message": "Option 'mapRoot' cannot be specified without specifying option 'sourceMap' or option 'declarationMap'.",
@@ -269,7 +277,11 @@ Info seq  [hh:mm:ss:mss] response:
             "line": 5,
             "offset": 30
           },
-          "arguments": []
+          "arguments": [
+            "mapRoot",
+            "sourceMap",
+            "declarationMap"
+          ]
         }
       ],
       "responseRequired": true
@@ -414,7 +426,11 @@ Info seq  [hh:mm:ss:mss] response:
             "line": 3,
             "offset": 38
           },
-          "arguments": []
+          "arguments": [
+            "mapRoot",
+            "inlineSourceMap",
+            null
+          ]
         },
         {
           "message": "Option 'mapRoot' cannot be specified with option 'inlineSourceMap'.",
@@ -430,7 +446,11 @@ Info seq  [hh:mm:ss:mss] response:
             "line": 4,
             "offset": 30
           },
-          "arguments": []
+          "arguments": [
+            "mapRoot",
+            "inlineSourceMap",
+            null
+          ]
         },
         {
           "message": "Option 'mapRoot' cannot be specified without specifying option 'sourceMap' or option 'declarationMap'.",
@@ -446,7 +466,11 @@ Info seq  [hh:mm:ss:mss] response:
             "line": 4,
             "offset": 30
           },
-          "arguments": []
+          "arguments": [
+            "mapRoot",
+            "sourceMap",
+            "declarationMap"
+          ]
         }
       ],
       "responseRequired": true

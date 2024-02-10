@@ -344,7 +344,11 @@ Info seq  [hh:mm:ss:mss] event:
             },
             "text": "Expected 1 arguments, but got 2.",
             "code": 2554,
-            "category": "error"
+            "category": "error",
+            "arguments": [
+              1,
+              2
+            ]
           }
         ]
       }

@@ -385,7 +385,9 @@ Info seq  [hh:mm:ss:mss] response:
             "line": 1,
             "offset": 7
           },
-          "arguments": []
+          "arguments": [
+            "shared"
+          ]
         }
       ]
     }
@@ -641,7 +643,9 @@ Info seq  [hh:mm:ss:mss] response:
             "line": 1,
             "offset": 6
           },
-          "arguments": []
+          "arguments": [
+            "utils"
+          ]
         }
       ]
     }
@@ -897,7 +901,9 @@ Info seq  [hh:mm:ss:mss] response:
             "line": 1,
             "offset": 7
           },
-          "arguments": []
+          "arguments": [
+            "shared"
+          ]
         }
       ]
     }

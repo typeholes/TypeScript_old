@@ -365,7 +365,10 @@ Info seq  [hh:mm:ss:mss] response:
           },
           "text": "Cannot find module './moduleFile' or its corresponding type declarations.",
           "code": 2307,
-          "category": "error"
+          "category": "error",
+          "arguments": [
+            "./moduleFile"
+          ]
         }
       ],
       "responseRequired": true

@@ -325,7 +325,9 @@ Info seq  [hh:mm:ss:mss] response:
             "line": 1,
             "offset": 19
           },
-          "arguments": []
+          "arguments": [
+            "IndirectDependency"
+          ]
         }
       ]
     }

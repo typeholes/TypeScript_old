@@ -1027,7 +1027,9 @@ Info seq  [hh:mm:ss:mss] response:
             "line": 1,
             "offset": 3
           },
-          "arguments": []
+          "arguments": [
+            "S3"
+          ]
         }
       ]
     }

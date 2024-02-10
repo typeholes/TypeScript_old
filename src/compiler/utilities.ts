@@ -8402,7 +8402,7 @@ export function createFileDiagnostic(file: SourceFile, start: number, length: nu
         code: message.code,
         reportsUnnecessary: message.reportsUnnecessary,
         reportsDeprecated: message.reportsDeprecated,
-        // arguments: args, //LSL restore after baseline test comparison
+        arguments: args,
     };
 }
 

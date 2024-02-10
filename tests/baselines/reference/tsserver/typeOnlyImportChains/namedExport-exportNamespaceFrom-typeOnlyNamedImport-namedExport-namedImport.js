@@ -131,6 +131,9 @@ Info seq  [hh:mm:ss:mss] response:
               "category": "message",
               "code": 1376
             }
+          ],
+          "arguments": [
+            "a"
           ]
         }
       ],

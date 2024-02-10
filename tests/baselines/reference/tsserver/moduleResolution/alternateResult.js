@@ -621,7 +621,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'foo' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "foo"
+            ]
           },
           {
             "start": {
@@ -635,7 +638,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'bar' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "bar"
+            ]
           },
           {
             "start": {
@@ -649,7 +655,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'foo2' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "foo2"
+            ]
           },
           {
             "start": {
@@ -663,7 +672,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'bar2' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "bar2"
+            ]
           }
         ]
       }
@@ -950,7 +962,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'foo' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "foo"
+            ]
           },
           {
             "start": {
@@ -964,7 +979,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'bar' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "bar"
+            ]
           },
           {
             "start": {
@@ -978,7 +996,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'foo2' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "foo2"
+            ]
           },
           {
             "start": {
@@ -992,7 +1013,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'bar2' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "bar2"
+            ]
           }
         ]
       }
@@ -1260,7 +1284,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'foo' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "foo"
+            ]
           },
           {
             "start": {
@@ -1274,7 +1301,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'bar' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "bar"
+            ]
           },
           {
             "start": {
@@ -1288,7 +1318,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'foo2' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "foo2"
+            ]
           },
           {
             "start": {
@@ -1302,7 +1335,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'bar2' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "bar2"
+            ]
           }
         ]
       }
@@ -1578,7 +1614,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'foo' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "foo"
+            ]
           },
           {
             "start": {
@@ -1592,7 +1631,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'bar' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "bar"
+            ]
           },
           {
             "start": {
@@ -1606,7 +1648,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'foo2' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "foo2"
+            ]
           },
           {
             "start": {
@@ -1620,7 +1665,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'bar2' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "bar2"
+            ]
           }
         ]
       }
@@ -1877,7 +1925,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'foo' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "foo"
+            ]
           },
           {
             "start": {
@@ -1891,7 +1942,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'bar' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "bar"
+            ]
           },
           {
             "start": {
@@ -1905,7 +1959,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'foo2' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "foo2"
+            ]
           },
           {
             "start": {
@@ -1919,7 +1976,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'bar2' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "bar2"
+            ]
           }
         ]
       }
@@ -2169,7 +2229,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'foo' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "foo"
+            ]
           },
           {
             "start": {
@@ -2183,7 +2246,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'bar' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "bar"
+            ]
           },
           {
             "start": {
@@ -2197,7 +2263,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'foo2' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "foo2"
+            ]
           },
           {
             "start": {
@@ -2211,7 +2280,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'bar2' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "bar2"
+            ]
           }
         ]
       }
@@ -2477,7 +2549,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'foo' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "foo"
+            ]
           },
           {
             "start": {
@@ -2491,7 +2566,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'bar' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "bar"
+            ]
           },
           {
             "start": {
@@ -2505,7 +2583,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'foo2' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "foo2"
+            ]
           },
           {
             "start": {
@@ -2519,7 +2600,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'bar2' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "bar2"
+            ]
           }
         ]
       }
@@ -2841,7 +2925,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'foo' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "foo"
+            ]
           },
           {
             "start": {
@@ -2855,7 +2942,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'bar' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "bar"
+            ]
           },
           {
             "start": {
@@ -2869,7 +2959,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'foo2' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "foo2"
+            ]
           },
           {
             "start": {
@@ -2883,7 +2976,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'bar2' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "bar2"
+            ]
           }
         ]
       }
@@ -3162,7 +3258,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'foo' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "foo"
+            ]
           },
           {
             "start": {
@@ -3176,7 +3275,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'bar' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "bar"
+            ]
           },
           {
             "start": {
@@ -3190,7 +3292,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'foo2' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "foo2"
+            ]
           },
           {
             "start": {
@@ -3204,7 +3309,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'bar2' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "bar2"
+            ]
           }
         ]
       }
@@ -3491,7 +3599,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'foo' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "foo"
+            ]
           },
           {
             "start": {
@@ -3505,7 +3616,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'bar' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "bar"
+            ]
           },
           {
             "start": {
@@ -3519,7 +3633,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'foo2' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "foo2"
+            ]
           },
           {
             "start": {
@@ -3533,7 +3650,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'bar2' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "bar2"
+            ]
           }
         ]
       }
@@ -3801,7 +3921,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'foo' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "foo"
+            ]
           },
           {
             "start": {
@@ -3815,7 +3938,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'bar' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "bar"
+            ]
           },
           {
             "start": {
@@ -3829,7 +3955,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'foo2' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "foo2"
+            ]
           },
           {
             "start": {
@@ -3843,7 +3972,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'bar2' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "bar2"
+            ]
           }
         ]
       }
@@ -4119,7 +4251,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'foo' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "foo"
+            ]
           },
           {
             "start": {
@@ -4133,7 +4268,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'bar' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "bar"
+            ]
           },
           {
             "start": {
@@ -4147,7 +4285,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'foo2' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "foo2"
+            ]
           },
           {
             "start": {
@@ -4161,7 +4302,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'bar2' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "bar2"
+            ]
           }
         ]
       }
@@ -4418,7 +4562,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'foo' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "foo"
+            ]
           },
           {
             "start": {
@@ -4432,7 +4579,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'bar' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "bar"
+            ]
           },
           {
             "start": {
@@ -4446,7 +4596,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'foo2' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "foo2"
+            ]
           },
           {
             "start": {
@@ -4460,7 +4613,10 @@ Info seq  [hh:mm:ss:mss] event:
             "text": "'bar2' is declared but its value is never read.",
             "code": 6133,
             "category": "suggestion",
-            "reportsUnnecessary": true
+            "reportsUnnecessary": true,
+            "arguments": [
+              "bar2"
+            ]
           }
         ]
       }
