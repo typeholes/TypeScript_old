@@ -308,9 +308,7 @@ Info seq  [hh:mm:ss:mss] request:
               "allowJs": false
             },
             "typeAcquisition": {
-              "include": [],
-              "exclude": [],
-              "enable": true
+              "include": []
             }
           }
         ]
