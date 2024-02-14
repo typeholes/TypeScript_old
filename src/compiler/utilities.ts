@@ -10679,11 +10679,16 @@ export function diagnosticArgumentToText(arg: DiagnosticArgument) {
     return typeof arg === "object" && "text" in arg ? arg.text : arg;
 }
 
-const argCache: (Node | Symbol | Signature | Type | TypePredicate)[] = [];
+let argCache: (Node | Symbol | Signature | Type | TypePredicate)[] = [];
 const argIndexes = new Map<any, number>();
 
 export function getDiagnosticArgValue(idx: number) {
     return argCache[idx];
+}
+
+export function resetDiagnosticArgumentsCache() {
+    argIndexes.clear;
+    argCache = [];
 }
 
 /** @internal */

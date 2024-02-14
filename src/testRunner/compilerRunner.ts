@@ -258,6 +258,7 @@ class CompilerTest {
             tsConfigOptions.configFile!.fileName = tsConfigOptions.configFilePath;
         }
 
+        ts.resetDiagnosticArgumentsCache();
         this.result = Compiler.compileFiles(
             this.toBeCompiled,
             this.otherFiles,

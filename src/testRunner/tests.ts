@@ -214,3 +214,12 @@ import "./unittests/debugDeprecation";
 import "./unittests/tsserver/inconsistentErrorInEditor";
 import "./unittests/tsserver/getMoveToRefactoringFileSuggestions";
 import "./unittests/skipJSDocParsing";
+
+
+beforeEach( () => {
+console.log('***************************** beforEach *************');
+throw new Error('a BF each');
+    // @ts-expect-error
+    global.ts.resetDiagnosticArgumentsCache()
+}
+);

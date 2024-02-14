@@ -4570,6 +4570,7 @@ export function runFourSlashTestContent(basePath: string, testType: FourSlashTes
     if (output.diagnostics!.length > 0) {
         throw new Error(`Syntax error in ${absoluteBasePath}: ${output.diagnostics![0].messageText}`);
     }
+    ts.resetDiagnosticArgumentsCache();
     runCode(output.outputText, state, actualFileName);
     state.baselineTest();
 }

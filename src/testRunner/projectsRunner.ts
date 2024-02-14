@@ -143,6 +143,8 @@ class ProjectTestCase {
         this.compilerOptions = createCompilerOptions(testCase, moduleKind);
         this.sys = new fakes.System(vfs);
 
+        ts.resetDiagnosticArgumentsCache();
+
         let configFileName: string | undefined;
         let inputFiles = testCase.inputFiles;
         if (this.compilerOptions.project) {

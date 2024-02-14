@@ -9288,7 +9288,8 @@ declare namespace ts {
      */
     function getJSDocCommentsAndTags(hostNode: Node): readonly (JSDoc | JSDocTag)[];
     function diagnosticArgumentToText(arg: DiagnosticArgument): string | number;
-    function getDiagnosticArgValue(idx: number): Node | Symbol | Type | Signature | TypePredicate;
+    function getDiagnosticArgValue(idx: number): Node | Symbol | TypePredicate | Type | Signature;
+    function resetDiagnosticArgumentsCache(): void;
     /** @deprecated */
     function createUnparsedSourceFile(text: string): UnparsedSource;
     /** @deprecated */
