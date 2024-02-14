@@ -218,7 +218,9 @@ Info seq  [hh:mm:ss:mss] response:
               "code": 1410
             }
           ],
-          "arguments": []
+          "arguments": [
+            "/a/b/applib.ts"
+          ]
         }
       ],
       "responseRequired": true
