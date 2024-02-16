@@ -13540,6 +13540,9 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
         if (paramMapper) {
             result.mapper = left.compositeKind !== TypeFlags.Intersection && left.mapper && left.compositeSignatures ? combineTypeMappers(left.mapper, paramMapper) : paramMapper;
         }
+        else if (left.compositeKind !== TypeFlags.Intersection && left.mapper && left.compositeSignatures) {
+            result.mapper = left.mapper;
+        }
         return result;
     }
 
@@ -19927,12 +19930,12 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
             if (!result) {
                 const newMapper = createTypeMapper(root.outerTypeParameters, typeArguments);
                 const checkType = root.checkType;
-                const distributionType = root.isDistributive ? getMappedType(checkType, newMapper) : undefined;
+                const distributionType = root.isDistributive ? getReducedType(getMappedType(checkType, newMapper)) : undefined;
                 // Distributive conditional types are distributed over union types. For example, when the
                 // distributive conditional type T extends U ? X : Y is instantiated with A | B for T, the
                 // result is (A extends U ? X : Y) | (B extends U ? X : Y).
                 result = distributionType && checkType !== distributionType && distributionType.flags & (TypeFlags.Union | TypeFlags.Never) ?
-                    mapTypeWithAlias(getReducedType(distributionType), t => getConditionalType(root, prependTypeMapping(checkType, t, newMapper), forConstraint), aliasSymbol, aliasTypeArguments) :
+                    mapTypeWithAlias(distributionType, t => getConditionalType(root, prependTypeMapping(checkType, t, newMapper), forConstraint), aliasSymbol, aliasTypeArguments) :
                     getConditionalType(root, newMapper, forConstraint, aliasSymbol, aliasTypeArguments);
                 root.instantiations!.set(id, result);
             }
@@ -26793,7 +26796,11 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
     function hasMatchingArgument(expression: CallExpression | NewExpression, reference: Node) {
         if (expression.arguments) {
             for (const argument of expression.arguments) {
-                if (isOrContainsMatchingReference(reference, argument) || optionalChainContainsReference(argument, reference)) {
+                if (
+                    isOrContainsMatchingReference(reference, argument)
+                    || optionalChainContainsReference(argument, reference)
+                    || getCandidateDiscriminantPropertyAccess(argument, reference)
+                ) {
                     return true;
                 }
             }
@@ -26805,6 +26812,51 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
             return true;
         }
         return false;
+    }
+
+    function getCandidateDiscriminantPropertyAccess(expr: Expression, reference: Node) {
+        if (isBindingPattern(reference) || isFunctionExpressionOrArrowFunction(reference) || isObjectLiteralMethod(reference)) {
+            // When the reference is a binding pattern or function or arrow expression, we are narrowing a pesudo-reference in
+            // getNarrowedTypeOfSymbol. An identifier for a destructuring variable declared in the same binding pattern or
+            // parameter declared in the same parameter list is a candidate.
+            if (isIdentifier(expr)) {
+                const symbol = getResolvedSymbol(expr);
+                const declaration = symbol.valueDeclaration;
+                if (declaration && (isBindingElement(declaration) || isParameter(declaration)) && reference === declaration.parent && !declaration.initializer && !declaration.dotDotDotToken) {
+                    return declaration;
+                }
+            }
+        }
+        else if (isAccessExpression(expr)) {
+            // An access expression is a candidate if the reference matches the left hand expression.
+            if (isMatchingReference(reference, expr.expression)) {
+                return expr;
+            }
+        }
+        else if (isIdentifier(expr)) {
+            const symbol = getResolvedSymbol(expr);
+            if (isConstantVariable(symbol)) {
+                const declaration = symbol.valueDeclaration!;
+                // Given 'const x = obj.kind', allow 'x' as an alias for 'obj.kind'
+                if (
+                    isVariableDeclaration(declaration) && !declaration.type && declaration.initializer && isAccessExpression(declaration.initializer) &&
+                    isMatchingReference(reference, declaration.initializer.expression)
+                ) {
+                    return declaration.initializer;
+                }
+                // Given 'const { kind: x } = obj', allow 'x' as an alias for 'obj.kind'
+                if (isBindingElement(declaration) && !declaration.initializer) {
+                    const parent = declaration.parent.parent;
+                    if (
+                        isVariableDeclaration(parent) && !parent.type && parent.initializer && (isIdentifier(parent.initializer) || isAccessExpression(parent.initializer)) &&
+                        isMatchingReference(reference, parent.initializer)
+                    ) {
+                        return declaration;
+                    }
+                }
+            }
+        }
+        return undefined;
     }
 
     function getFlowNodeId(flow: FlowNode): number {
@@ -28163,57 +28215,12 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
             return result;
         }
 
-        function getCandidateDiscriminantPropertyAccess(expr: Expression) {
-            if (isBindingPattern(reference) || isFunctionExpressionOrArrowFunction(reference) || isObjectLiteralMethod(reference)) {
-                // When the reference is a binding pattern or function or arrow expression, we are narrowing a pesudo-reference in
-                // getNarrowedTypeOfSymbol. An identifier for a destructuring variable declared in the same binding pattern or
-                // parameter declared in the same parameter list is a candidate.
-                if (isIdentifier(expr)) {
-                    const symbol = getResolvedSymbol(expr);
-                    const declaration = symbol.valueDeclaration;
-                    if (declaration && (isBindingElement(declaration) || isParameter(declaration)) && reference === declaration.parent && !declaration.initializer && !declaration.dotDotDotToken) {
-                        return declaration;
-                    }
-                }
-            }
-            else if (isAccessExpression(expr)) {
-                // An access expression is a candidate if the reference matches the left hand expression.
-                if (isMatchingReference(reference, expr.expression)) {
-                    return expr;
-                }
-            }
-            else if (isIdentifier(expr)) {
-                const symbol = getResolvedSymbol(expr);
-                if (isConstantVariable(symbol)) {
-                    const declaration = symbol.valueDeclaration!;
-                    // Given 'const x = obj.kind', allow 'x' as an alias for 'obj.kind'
-                    if (
-                        isVariableDeclaration(declaration) && !declaration.type && declaration.initializer && isAccessExpression(declaration.initializer) &&
-                        isMatchingReference(reference, declaration.initializer.expression)
-                    ) {
-                        return declaration.initializer;
-                    }
-                    // Given 'const { kind: x } = obj', allow 'x' as an alias for 'obj.kind'
-                    if (isBindingElement(declaration) && !declaration.initializer) {
-                        const parent = declaration.parent.parent;
-                        if (
-                            isVariableDeclaration(parent) && !parent.type && parent.initializer && (isIdentifier(parent.initializer) || isAccessExpression(parent.initializer)) &&
-                            isMatchingReference(reference, parent.initializer)
-                        ) {
-                            return declaration;
-                        }
-                    }
-                }
-            }
-            return undefined;
-        }
-
         function getDiscriminantPropertyAccess(expr: Expression, computedType: Type) {
             // As long as the computed type is a subset of the declared type, we use the full declared type to detect
             // a discriminant property. In cases where the computed type isn't a subset, e.g because of a preceding type
             // predicate narrowing, we use the actual computed type.
             if (declaredType.flags & TypeFlags.Union || computedType.flags & TypeFlags.Union) {
-                const access = getCandidateDiscriminantPropertyAccess(expr);
+                const access = getCandidateDiscriminantPropertyAccess(expr, reference);
                 if (access) {
                     const name = getAccessedPropertyName(access);
                     if (name) {
@@ -48365,28 +48372,35 @@ export function createTypeChecker(host: TypeCheckerHost): TypeChecker {
             isTypeOnly = !!rootValueSymbol?.declarations?.every(isTypeOnlyImportOrExportDeclaration);
         }
         const valueSymbol = resolveEntityName(typeName, SymbolFlags.Value, /*ignoreErrors*/ true, /*dontResolveAlias*/ true, location);
-        const resolvedSymbol = valueSymbol && valueSymbol.flags & SymbolFlags.Alias ? resolveAlias(valueSymbol) : valueSymbol;
+        const resolvedValueSymbol = valueSymbol && valueSymbol.flags & SymbolFlags.Alias ? resolveAlias(valueSymbol) : valueSymbol;
         isTypeOnly ||= !!(valueSymbol && getTypeOnlyAliasDeclaration(valueSymbol, SymbolFlags.Value));
 
         // Resolve the symbol as a type so that we can provide a more useful hint for the type serializer.
-        const typeSymbol = resolveEntityName(typeName, SymbolFlags.Type, /*ignoreErrors*/ true, /*dontResolveAlias*/ false, location);
-        if (resolvedSymbol && resolvedSymbol === typeSymbol) {
+        const typeSymbol = resolveEntityName(typeName, SymbolFlags.Type, /*ignoreErrors*/ true, /*dontResolveAlias*/ true, location);
+        const resolvedTypeSymbol = typeSymbol && typeSymbol.flags & SymbolFlags.Alias ? resolveAlias(typeSymbol) : typeSymbol;
+
+        // In case the value symbol can't be resolved (e.g. because of missing declarations), use type symbol for reachability check.
+        if (!valueSymbol) {
+            isTypeOnly ||= !!(typeSymbol && getTypeOnlyAliasDeclaration(typeSymbol, SymbolFlags.Type));
+        }
+
+        if (resolvedValueSymbol && resolvedValueSymbol === resolvedTypeSymbol) {
             const globalPromiseSymbol = getGlobalPromiseConstructorSymbol(/*reportErrors*/ false);
-            if (globalPromiseSymbol && resolvedSymbol === globalPromiseSymbol) {
+            if (globalPromiseSymbol && resolvedValueSymbol === globalPromiseSymbol) {
                 return TypeReferenceSerializationKind.Promise;
             }
 
-            const constructorType = getTypeOfSymbol(resolvedSymbol);
+            const constructorType = getTypeOfSymbol(resolvedValueSymbol);
             if (constructorType && isConstructorType(constructorType)) {
                 return isTypeOnly ? TypeReferenceSerializationKind.TypeWithCallSignature : TypeReferenceSerializationKind.TypeWithConstructSignatureAndValue;
             }
         }
 
         // We might not be able to resolve type symbol so use unknown type in that case (eg error case)
-        if (!typeSymbol) {
+        if (!resolvedTypeSymbol) {
             return isTypeOnly ? TypeReferenceSerializationKind.ObjectType : TypeReferenceSerializationKind.Unknown;
         }
-        const type = getDeclaredTypeOfSymbol(typeSymbol);
+        const type = getDeclaredTypeOfSymbol(resolvedTypeSymbol);
         if (isErrorType(type)) {
             return isTypeOnly ? TypeReferenceSerializationKind.ObjectType : TypeReferenceSerializationKind.Unknown;
         }
