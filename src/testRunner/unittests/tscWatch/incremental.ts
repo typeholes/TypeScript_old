@@ -212,7 +212,7 @@ describe("unittests:: tsc-watch:: emit file --incremental", () => {
                 assert.equal(state.semanticDiagnosticsPerFile!.size, 3);
                 assert.deepEqual(state.semanticDiagnosticsPerFile!.get(libFile.path as ts.Path), ts.emptyArray);
                 assert.deepEqual(state.semanticDiagnosticsPerFile!.get(file1.path as ts.Path), ts.emptyArray);
-                assert.deepEqual(state.semanticDiagnosticsPerFile!.get(file2.path as ts.Path) , [{
+                assert.deepEqual(state.semanticDiagnosticsPerFile!.get(file2.path as ts.Path), [{
                     file: state.program!.getSourceFileByPath(file2.path as ts.Path)!,
                     start: 13,
                     length: 1,

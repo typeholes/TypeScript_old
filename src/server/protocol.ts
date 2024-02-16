@@ -177,7 +177,6 @@ export const enum CommandTypes {
     WatchChange = "watchChange",
 }
 
-
 /**
  * A TypeScript Server message
  */

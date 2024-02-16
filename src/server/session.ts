@@ -1432,7 +1432,7 @@ export class Session<TMessage = string> implements EventSender {
             reportsUnnecessary: d.reportsUnnecessary,
             reportsDeprecated: d.reportsDeprecated,
             relatedInformation: map(d.relatedInformation, formatRelatedInformation),
-            arguments: flattenDiagnosticMessageArguments(d.messageText, d.arguments)
+            arguments: flattenDiagnosticMessageArguments(d.messageText, d.arguments),
         }));
     }
 
@@ -1464,7 +1464,7 @@ export class Session<TMessage = string> implements EventSender {
                 reportsUnnecessary: d.reportsUnnecessary,
                 reportsDeprecated: d.reportsDeprecated,
                 relatedInformation: map(d.relatedInformation, formatRelatedInformation),
-                arguments: flattenDiagnosticMessageArguments(d.messageText, d.arguments)
+                arguments: flattenDiagnosticMessageArguments(d.messageText, d.arguments),
             }) as protocol.DiagnosticWithLinePosition
         );
     }
